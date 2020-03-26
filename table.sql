@@ -16,5 +16,5 @@ CREATE TABLE FormResults (
 	Mobile BOOLEAN,
 	Fever BOOLEAN,
 	Cough BOOLEAN,
-	Breathing BOOLEAN,	
+	Breathing BOOLEAN	
 );
