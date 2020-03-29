@@ -2,86 +2,75 @@
 // Form, Next Button, Previous Button        //
 ///////////////////////////////////////////////
 
-var currentTab = 0; // Current tab is set to be the first tab (0)
-showTab(currentTab); // Display the current tab
+(function ( $ ) {
+  $.fn.multiStepForm = function(args) {
+      if(args === null || typeof args !== 'object' || $.isArray(args))
+        throw  " : Called with Invalid argument";
+      var form = this;
+      var tabs = form.find('.tab');
+      var steps = form.find('.step');
+      steps.each(function(i, e){
+        $(e).on('click', function(ev){
+        });
+      });
+      form.navigateTo = function (i) {/*index*/
+        /*Mark the current section with the class 'current'*/
+        tabs.removeClass('current').eq(i).addClass('current');
+        // Show only the navigation buttons that make sense for the current section:
+        form.find('.previous').toggle(i > 0);
+        atTheEnd = i >= tabs.length - 1;
+        form.find('.next').toggle(!atTheEnd);
+        // console.log('atTheEnd='+atTheEnd);
+        form.find('.submit').toggle(atTheEnd);
+        fixStepIndicator(curIndex());
+        return form;
+      }
+      function curIndex() {
+        /*Return the current index by looking at which section has the class 'current'*/
+        return tabs.index(tabs.filter('.current'));
+      }
+      function fixStepIndicator(n) {
+        steps.each(function(i, e){
+          i == n ? $(e).addClass('active') : $(e).removeClass('active');
+        });
+      }
+      /* Previous button is easy, just go back */
+      form.find('.previous').click(function() {
+        form.navigateTo(curIndex() - 1);
+      });
 
-// Add listeners for Button
-//var prevBtn = document.getElementById("prevBtn");
-//prevBtn.addEventListener("click",nextPrev(-1));
-//var nextBtn= document.getElementById("nextBtn");
-//nextBtn.addEventListener("click",nextPrev(1));
+      /* Next button goes forward iff current block validates */
+      form.find('.next').click(function() {
+        if('validations' in args && typeof args.validations === 'object' && !$.isArray(args.validations)){
+          if(!('noValidate' in args) || (typeof args.noValidate === 'boolean' && !args.noValidate)){
+            form.validate(args.validations);
+            if(form.valid() == true){
+              form.navigateTo(curIndex() + 1);
+              return true;
+            }
+            return false;
+          }
+        }
+        form.navigateTo(curIndex() + 1);
+      });
+      form.find('.submit').on('click', function(e){
+        if(typeof args.beforeSubmit !== 'undefined' && typeof args.beforeSubmit !== 'function')
+          args.beforeSubmit(form, this);
+        /*check if args.submit is set false if not then form.submit is not gonna run, if not set then will run by default*/        
+        if(typeof args.submit === 'undefined' || (typeof args.submit === 'boolean' && args.submit)){
+          form.submit();
+        }
+        return form;
+      });
+      /*By default navigate to the tab 0, if it is being set using defaultStep property*/
+      typeof args.defaultStep === 'number' ? form.navigateTo(args.defaultStep) : null;
 
-
-function showTab(n) {
-  // This function will display the specified tab of the form...
-  var x = document.getElementsByClassName("tab");
-  
-  x[n].style.display = "block";
-  //... and fix the Previous/Next buttons:
-  if (n == 0) {
-    document.getElementById("prevBtn").style.display = "none";
-  } else {
-    document.getElementById("prevBtn").style.display = "inline";
-  }
-  if (n == (x.length - 1)) {
-    document.getElementById("nextBtn").innerHTML = "Submit";
-  } else {
-    document.getElementById("nextBtn").innerHTML = "Next";
-  }
-  //... and run a function that will display the correct step indicator:
-  fixStepIndicator(n)
-}
-
-function nextPrev(n) {
-  // This function will figure out which tab to display
-  var x = document.getElementsByClassName("tab");
-  // Exit the function if any field in the current tab is invalid:
-  if (n == 1 && !validateForm()) return false;
-  // Hide the current tab:
-  x[currentTab].style.display = "none";
-  // Increase or decrease the current tab by 1:
-  currentTab = currentTab + n;
-  // if you have reached the end of the form...
-  if (currentTab >= x.length) {
-    // ... the form gets submitted:
-    document.getElementById("regForm").submit();
-    return false;
-  }
-  // Otherwise, display the correct tab:
-  showTab(currentTab);
-}
-
-function validateForm() {
-  // This function deals with validation of the form fields
-  var x, y, i, valid = true;
-  x = document.getElementsByClassName("tab");
-  y = x[currentTab].getElementsByTagName("input");
-  // A loop that checks every input field in the current tab:
-  for (i = 0; i < y.length; i++) {
-    // If a field is empty...
-    if (y[i].value == "") {
-      // add an "invalid" class to the field:
-      y[i].className += " invalid";
-      // and set the current valid status to false
-      valid = false;
-    }
-  }
-  // If the valid status is true, mark the step as finished and valid:
-  if (valid) {
-    document.getElementsByClassName("step")[currentTab].className += " finish";
-  }
-  return valid; // return the valid status
-}
-
-function fixStepIndicator(n) {
-  // This function removes the "active" class of all steps...
-  var i, x = document.getElementsByClassName("step");
-  for (i = 0; i < x.length; i++) {
-    x[i].className = x[i].className.replace(" active", "");
-  }
-  //... and adds the "active" class on the current step:
-  x[n].className += " active";
-}
+      form.noValidate = function() {
+        
+      }
+      return form;
+  };
+}( jQuery ));
 
 ///////////////////////////////////////////////
 // Travel History                            //
