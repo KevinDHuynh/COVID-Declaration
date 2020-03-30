@@ -77,7 +77,8 @@
         		<form id="regForm" action="#" method="POST">
 			<h1>Health Declaration Form:</h1>
 			<!-- One "tab" for each step in the form: -->
-			  
+			
+			
 	 		 <!-- PERSONAL INFORMATION -->
 			  <div class="tab">
 				<p>
@@ -446,78 +447,78 @@
 						</div>
 					</div>
 				</div>
-
 				<!-- TRAVEL HISTORY -->
-				<div class="tab">Travel History:
-					<div class="travel">
-						<div class="travelQuest"><label class="important">In the past 3 months, have you been to
-								Republic of China?</label></div>
+			<div class="tab">Travel History:
+				<div class="travel">
+					<div class="travelQuest"><label class="important">In the past 3 months, have you been to
+							Republic of China?</label></div>
 
-						<label class="switch">
-							<input id="inChina" type="checkbox">
-							<span class="slider round"></span>
-						</label>
-						<div id="dateChina">
-							<label>How long have you been in China? </label>
-							<p><input type="textarea" placeholder="Please give the specific date..."
-									oninput="this.className = ''" name="date_inChina"></p>
-						</div>
+					<label class="switch">
+						<input id="inChina" type="checkbox">
+						<span class="slider round"></span>
+					</label>
+					<div id="dateChina">
+						<label>How long have you been in China? </label>
+						<p><input type="textarea" placeholder="Please give the specific date..."
+								oninput="this.className = ''" name="date_inChina"></p>
 					</div>
-
-					<div class="travel">
-						<div class="country">
-							<p><strong>Schengen Area</strong>(Austria, Belgium, Czech Republic, Denmark,
-								Estonia, Finland, France, Germany, Greece, Hungary, Iceland,
-								Italy, Latvia, Liechtenstein, Lithuania, Luxembourg, Malta, Netherlands, Norway,
-								Poland, Portugal, Slovakia, Slovenia, Spain,
-								Sweden, Switzerland, Monaco, San Marino, and Vatican City),<strong> Iran,
-									Ireland, United Kingdom</strong></p>
-						</div>
-						<div class="travelQuest"><label class="important">In the past 14 days, have you been to
-								any of the other
-								countries or geographic regions listed:</label></div>
-
-						<label class="switch">
-							<input id="inRegion" type="checkbox">
-							<span class="slider round"></span>
-						</label>
-						</p>
-						<div id="dateRegion">
-							<br />
-							<label>Which countries or geographic regions have been? </label>
-							<p><input
-									placeholder="Please seperate countries by comma. For example: Italy, Austria"
-									oninput="this.className = ''" name="date_inChina"></p>
-						</div>
-					</div>
-
 				</div>
 
-				<!-- SYMPTOMS -->
-				<div class="tab">
-					<div class="important"><strong>TODAY OR IN THE PAST 24 HOURS, HAVE YOU HAD ANY OF THE
-							FOLLOWING SYMPTOMS?</strong>
+				<div class="travel">
+					<div class="country">
+						<p><strong>Schengen Area</strong>(Austria, Belgium, Czech Republic, Denmark,
+							Estonia, Finland, France, Germany, Greece, Hungary, Iceland,
+							Italy, Latvia, Liechtenstein, Lithuania, Luxembourg, Malta, Netherlands, Norway,
+							Poland, Portugal, Slovakia, Slovenia, Spain,
+							Sweden, Switzerland, Monaco, San Marino, and Vatican City),<strong> Iran,
+								Ireland, United Kingdom</strong></p>
 					</div>
-					<div class="symptom">
-						<img src="images/fever.png" />
-						<p><strong>Fever (100.4° F / 38° C or higher), felt feverish, or had chills?</strong>
-						</p>
-						<button name="isFever" class="btn success">Yes</button>
-						<button name="isFever" class="btn danger">No</button>
-					</div>
-					<div class="symptom">
-						<img src="images/cough.png" />
-						<p><strong>New or worsening persistent (frequent or continuing) cough?</strong></p>
-						<button name="isCough" class="btn success">Yes</button>
-						<button name="isCough" class="btn danger">No</button>
-					</div>
-					<div class="symptom">
-						<img src="images/short_breath.png" />
-						<p><strong>New or worsening difficulty breathing?</strong></p>
-						<button name="isShortBreath" class="btn success">Yes</button>
-						<button name="isShortBreath" class="btn danger">No</button>
+					<div class="travelQuest"><label class="important">In the past 14 days, have you been to
+							any of the other
+							countries or geographic regions listed:</label></div>
+
+					<label class="switch">
+						<input id="inRegion" type="checkbox">
+						<span class="slider round"></span>
+					</label>
+					</p>
+					<div id="dateRegion">
+						<br />
+						<label>Which countries or geographic regions have been? </label>
+						<p><input
+								placeholder="Please seperate countries by comma. For example: Italy, Austria"
+								oninput="this.className = ''" name="date_inChina"></p>
 					</div>
 				</div>
+
+			</div>
+			<!-- SYMPTOMS -->
+			<div class="tab">
+				<div class="important"><strong>TODAY OR IN THE PAST 24 HOURS, HAVE YOU HAD ANY OF THE
+						FOLLOWING SYMPTOMS?</strong>
+				</div>
+				<div class="symptom">
+					<img src="images/fever.png" />
+					<p><strong>Fever (100.4° F / 38° C or higher), felt feverish, or had chills?</strong>
+					</p>
+					<button id="isFever"class="btn success">Yes</button>
+					<button id="notFever" class="btn danger">No</button>
+				</div>
+				<div class="symptom">
+					<img src="images/cough.png" />
+					<p><strong>New or worsening persistent (frequent or continuing) cough?</strong></p>
+					<button id="isCough" class="btn success">Yes</button>
+					<button id="notCough" class="btn danger">No</button>
+				</div>
+				<div class="symptom">
+					<img src="images/short_breath.png" />
+					<p><strong>New or worsening difficulty breathing?</strong></p>
+					<button id="isShortBreath" class="btn success">Yes</button>
+					<button id="notShortBreath" class="btn danger">No</button>
+				</div>
+			</div>	
+
+				
 	  
 			<div style="overflow:auto;">
 	    		<div style="float:right; margin-top: 5px;">
@@ -537,4 +538,5 @@
 			</div>
 		</form>
 </body>
+<script type="text/javascript" src="form.js"></script>
 </html>

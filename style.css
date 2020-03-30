@@ -172,7 +172,7 @@
     color: green;
   }
   
-  .success:hover {
+  .success:hover, .true {
     background-color: #4CAF50;
     color: white;
   }
@@ -181,7 +181,7 @@
     color: red;
   }
   
-  .danger:hover {
+  .danger:hover, .false {
     background: #f44336;
     color: white;
   }
@@ -200,6 +200,7 @@
     margin: 10px auto;
     
   }
+
 /*********************************************************************************/
 /* Travel History                                                                   */
 /*********************************************************************************/ 
@@ -315,9 +316,9 @@
 .autocomplete-wrapper {
   position: relative;
   
-  input {
+ /* input {
     width: 100%;
-  }
+  }*/
 }
 .autocomplete-results {
   position: absolute;
@@ -348,7 +349,7 @@
   font-size: smaller;
 }
 
-$iPlus: 0;
+/*$iPlus: 0;
 @for $i from 0 through 7 {
   $iPlus: $i + 1;
   .autocomplete-results[data-highlight='#{$i}'] > :nth-child(#{$iPlus}) {
@@ -357,7 +358,7 @@ $iPlus: 0;
     border-bottom-color: #26C9FF;
     outline: solid 1px darken(#26C9FF, 10%);
   }
-}
+}*/
 
 
 /*********************************************************************************/
