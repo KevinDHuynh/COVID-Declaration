@@ -1,27 +1,33 @@
+<html>
+<body>
+
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "wit123";
-$dbname = "covid-declaration";
+$servername = 'localhost';
+$username = 'root';
+$password = 'wit123';
+$dbname = 'covid_declaration';
 
 //connect to database server
-$con = mysql_connect($servername,$username,$password);
+$con = mysqli_connect($servername,$username,$password,$dbname);
 //check for connection
 if (!$con) {
-	die('Connection failed: ' . mysql_error());
+	die('Connection failed: ' . mysqli_error($con));
 }
-//select database
-mysql_select_db($dbname,$con);
 
-$sql="INSERT into passenger (passportNo, nationality, firstName, middleName, lastName, DOB, street, city, state, zipcode, email, phone, phone, mobile, fever, cough, difficultyBreathing)
+$passport = mysqli_real_escape_string($con, $_REQUEST['passport']);
+
+
+$sql="INSERT into passenger (passportNo)
 VALUES
-('$_POST[passenger]','$_POST[nationality]','$_POST[firstName]','$_POST[middleName]','$_POST[lastName]','$_POST[birthday]','$_POST[gender]','$_POST[st_address]','$_POST[city]','$_POST[state]','$_POST[selected]','$_POST[zip]','$_POST[email]','$_POST[phone number]','$_POST[mobile]')";
+('$passport')";
 
-if (!mysql_query($sql,$con)){
-	die('Error: ' . mysql_error());
+if (!mysqli_query($con,$sql)){
+	die('Error: ' . mysqli_error($con));
 }
 echo "submission added";
 
-mysql_close($con)
-
+mysqli_close($con)
 ?>
+
+</body>
+</html>
