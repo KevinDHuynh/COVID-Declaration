@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 31, 2020 at 04:19 PM
+-- Generation Time: Mar 31, 2020 at 04:32 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.3
 
@@ -64,6 +64,7 @@ CREATE TABLE `passenger` (
   `middleName` varchar(32) NOT NULL,
   `lastName` varchar(32) NOT NULL,
   `DOB` date NOT NULL,
+  `gender` varchar(16) NOT NULL,
   `street` varchar(32) NOT NULL,
   `city` varchar(32) NOT NULL,
   `state` int(32) NOT NULL,
@@ -77,13 +78,6 @@ CREATE TABLE `passenger` (
   `cough` tinyint(1) NOT NULL,
   `difficultyBreathing` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `passenger`
---
-
-INSERT INTO `passenger` (`passengerID`, `passportNo`, `nationality`, `firstName`, `middleName`, `lastName`, `DOB`, `street`, `city`, `state`, `zipcode`, `email`, `phone`, `mobile`, `inChina`, `date_inChina`, `fever`, `cough`, `difficultyBreathing`) VALUES
-(2, 12314123, '', '', '', '', '0000-00-00', '', '', 0, 0, '', '', 0, 0, '0000-00-00', 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -138,7 +132,7 @@ ALTER TABLE `flight`
 -- AUTO_INCREMENT for table `passenger`
 --
 ALTER TABLE `passenger`
-  MODIFY `passengerID` int(32) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `passengerID` int(32) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Constraints for dumped tables
