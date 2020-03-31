@@ -74,7 +74,7 @@
 			</div>
 	
 			<div id="form">
-        		<form id="regForm" action="#" method="POST">
+        		<form id="regForm" action="submit_form.php" method="POST">
 			<h1>Health Declaration Form:</h1>
 			<!-- One "tab" for each step in the form: -->
 			
@@ -538,4 +538,20 @@
 		</form>
 </body>
 <script type="text/javascript" src="form.js"></script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $("submit").click(function(){
+
+            $.ajax({
+                type: 'POST',
+                url: 'submit_form.php',
+                success: function(data) {
+                    alert(data);
+                    $("p").text(data);
+
+                }
+            });
+   });
+});
+</script>
 </html>
