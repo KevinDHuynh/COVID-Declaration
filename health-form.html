@@ -25,7 +25,7 @@
             <form method="POST" id="health-form" class="health-form">
                 
                 
-
+                
                 <!-- Personal Information -->
                 <h3>
                     <span class="title_text">Personal Information</span>
@@ -375,54 +375,72 @@
                                     <option value=1>1</option>
                                     <option value=2>2</option>
                                     <option value=3>3</option>
-                                    <option value=4>4</option>
-                                </select></div>
+                                </select>
+                            </div>
 
 
                         </div>
-                        <div class="form-flight">
-                            <div id="no_stops">
+                        <div id="no_stops"class="form-flight">
                                 <lable class="layover-title">Enter your flight information:</lable>
                                 <p><input id="airline_0" placeholder="What is the Airline?" /></p>
                                 <p><input id="flightNo_0" placeholder="Flight number" /></p>
                                 <p><input id="seatNo_0" placeholder="Seat number" /></p>
-                            </div>
+                        </div> 
+                        <!-- Ask for stops -->
+                        <div id="stopNo" class="form-flight">
+                                <lable class="layover-title">Where did you layover? </lable>
+                                <p id="stop_1"><input  placeholder="Your first layover" /></p>
+                                <p id="stop_2"><input  placeholder="Your second layover" /></p>
+                                <p id="stop_3"><input  placeholder="Your third layover" /></p>
+
                         </div>
-                        <div class="form-flight">
-                            <div class="many_stops">
-                                <lable class="layover-title">First Layover:</lable>
-                                <p><input id="layover_1"  placeholder="Where is your first layover?" name="stop" /></p>
-                                <p><input id="airline_1"placeholder="Airline " /></p>
-                                <p><input id="flightNo_1" placeholder="Flight number" /></p>
-                                <p><input id="seatNo_1"placeholder="Seat number" /></p>
+                        <!-- LAYOVER INFORMATION -->
+                        <div id="ask"><lable class="layover-title">Please enter your layover information </lable></div>
+                        
+                        <div class = "many_stops">
+                            <div class="from-to">
+                                <label class="stops">From</label>
+                                <input id="departure_1" class="from" disabled />
+                                <label class="stops">To</label>
+                                <input id="arrival_1" class="to" disabled />
                             </div>
+                            <p><input id="airline_1" placeholder="Airline " /></p>
+                            <p><input id="flightNo_1" placeholder="Flight number" /></p>
+                            <p><input id="seatNo_1" placeholder="Seat number" /></p>
                         </div>
-                        <div class="form-flight">
-                            <div class="many_stops">
-                                <lable class="layover-title">Second Layover:</lable>
-                                <p><input id="layover_2"  placeholder="Where is your second layover?" name="stop" /></p>
-                                <p><input id="airline_2"placeholder="Airline" /></p>
-                                <p><input id="flightNo_2" placeholder="Flight number" /></p>
-                                <p><input id="seatNo_2"placeholder="Seat number" /></p>
+
+                        <div class ="many_stops">
+                            <div class="from-to">
+                                <label class="stops">From</label>
+                                <input id="departure_2" class="from" disabled/>
+                                <label class="stops">To</label>
+                                <input id="arrival_2" class="to" disabled />
                             </div>
+                            <p><input id="airline_2" placeholder="Airline " /></p>
+                            <p><input id="flightNo_2" placeholder="Flight number" /></p>
+                            <p><input id="seatNo_2" placeholder="Seat number" /></p>
                         </div>
-                        <div class="form-flight">
-                            <div class="many_stops">
-                                <lable class="layover-title">Third Layover:</lable>
-                                <p><input id="layover_3"  placeholder="Where is your third layover?" name="stop" /></p>
-                                <p><input id="airline_3"placeholder="Airline " /></p>
-                                <p><input id="flightNo_3" placeholder="Flight number" /></p>
-                                <p><input id="seatNo_3"placeholder="Seat number" /></p>
+                        <div class ="many_stops">
+                            <div class="from-to">
+                                <label class="stops">From</label>
+                                <input id="departure_3" class="from" disabled />
+                                <label class="stops">To</label>
+                                <input id="arrival_3" class="to" disabled />
                             </div>
+                            <p><input id="airline_3" placeholder="Airline " /></p>
+                            <p><input id="flightNo_3" placeholder="Flight number" /></p>
+                            <p><input id="seatNo_3" placeholder="Seat number" /></p>
                         </div>
-                        <div class="form-flight">
-                            <div class="many_stops">
-                                <lable class="layover-title">Fourth Layover:</lable>
-                                <p><input id="layover_4"  placeholder="Where is your fourth layover?" name="stop" /></p>
-                                <p><input id="airline_4"placeholder="Airline" /></p>
-                                <p><input id="flightNo_4" placeholder="Flight number" /></p>
-                                <p><input id="seatNo_4"placeholder="Seat number" /></p>
+                        <div class ="many_stops">
+                            <div class="from-to">
+                                <label class="stops">From</label>
+                                <input id="departure_4" class="from" disabled />
+                                <label class="stops">To</label>
+                                <input id="arrival_4" class="to" disabled />
                             </div>
+                            <p><input id="airline_4" placeholder="Airline " /></p>
+                            <p><input id="flightNo_4" placeholder="Flight number" /></p>
+                            <p><input id="seatNo_4" placeholder="Seat number" /></p>
                         </div>
                     </div>
                     <div class="fieldset-footer">
@@ -472,7 +490,7 @@
                             <div class="form-group">
                                 <label for="origin" class="travel_history ">Which countries or geographic regions have
                                     been?</label>
-                                <textarea name="origin" id="recent_countries" placeholder="Enter specific date"></textarea>
+                                <textarea name="origin" id="recent_countries" placeholder="Enter the countries/regions"></textarea>
                             </div>
 
                         </div>
@@ -517,7 +535,9 @@
                         <span>Step 4 of 5</span>
                     </div>
                 </fieldset>
-                <!-- Review -->
+                <!-- --------------------- -->
+                <!--      Review           -->
+                <!-- --------------------- -->
                 <h3>
                     <span class="title_text">Review</span>
                 </h3>
@@ -615,9 +635,11 @@
                                 <div id="r_layover_1" class="form-review r_layover">
                                      
                                     <p>
-                                        <div class="layover-title">First Layover:</div>
-                                        <label for="r_airport_1" class="title_review">Layover:</label>
-                                        <span id="r_airport_1"> Japan Airline</span>
+                                        <div class="layover-title">First Flight:</div>
+                                        <label for="r_departure_1" class="title_review">FROM:</label>
+                                        <span id="r_departure_1"> Boston</span>
+                                        <label for="r_arrival_1" class="title_review">TO:</label>
+                                        <span id="r_arrival_1"> Japan</span>
 
                                         <label for="r_airline_1" class="title_review">Airline:</label>
                                         <span id="r_airline_1"> Japan Airline</span>
@@ -632,9 +654,11 @@
                                 <div id="r_layover_2" class="form-review r_layover">
                                     
                                     <p>
-                                        <div class="layover-title">Second Layover:</div> 
-                                        <label for="r_airport_2" class="title_review">Layover:</label>
-                                        <span id="r_airport_2"> Japan Airline</span>
+                                        <div class="layover-title">Second Flight:</div> 
+                                        <label for="r_departure_2" class="title_review">FROM:</label>
+                                        <span id="r_departure_2"> Boston</span>
+                                        <label for="r_arrival_2" class="title_review">TO:</label>
+                                        <span id="r_arrival_2"> Japan</span>
 
                                         <label for="r_airline_2" class="title_review">Airline:</label>
                                         <span id="r_airline_2"> Japan Airline</span>
@@ -649,9 +673,11 @@
                                 <div id="r_layover_3" class="form-review r_layover">
                                     
                                     <p>
-                                        <div class="layover-title">Third Layover:</div> 
-                                        <label for="r_airport_3" class="title_review">Layover:</label>
-                                        <span id="r_airport_3"> Japan Airline</span>
+                                        <div class="layover-title">Third Flight:</div> 
+                                        <label for="r_departure_3" class="title_review">FROM:</label>
+                                        <span id="r_departure_3"> Boston</span>
+                                        <label for="r_arrival_3" class="title_review">TO:</label>
+                                        <span id="r_arrival_3"> Japan</span>
 
                                         <label for="r_airline_3" class="title_review">Airline:</label>
                                         <span id="r_airline_3"> Japan Airline</span>
@@ -666,9 +692,11 @@
                                 <div id="r_layover_4" class="form-review r_layover">
                                     
                                     <p>
-                                        <div class="layover-title">Fourth Layover:</div> 
-                                        <label for="r_airport_4" class="title_review">Layover:</label>
-                                        <span id="r_airport_4"> Japan Airline</span>
+                                        <div class="layover-title">Fourth Flight:</div> 
+                                        <label for="r_departure_4" class="title_review">FROM:</label>
+                                        <span id="r_departure_4"> Boston</span>
+                                        <label for="r_arrival_4" class="title_review">TO:</label>
+                                        <span id="r_arrival_4"> Japan</span>
 
                                         <label for="r_airline_4" class="title_review">Airline:</label>
                                         <span id="r_airline_4"> Japan Airline</span>
@@ -745,7 +773,6 @@
                         <span>Step 5 of 5</span>
                     </div>
                 </fieldset>
-
 
             </form>
         </div>

@@ -405,10 +405,31 @@ select {
 }
 .many_stops{
   display: none;
+  width: 35%;
+  padding: 10px;
+  padding-right: 0;
 }
-.many_stops:nth-child(even), .many_stops:first-child{
-  margin-left: 100px;
+.many_stops:nth-child(odd){
+  margin-left: 150px;
 }
+#stopNo, #stop_1, #stop_2, #stop_3{
+  display: none;
+}
+#ask{
+  display: none;
+  width: 400px;
+  margin: 20px auto;
+}
+.from, .to{
+ width: 100px;
+ 
+}
+.from-to label, .from-to input{ 
+  display: inline;
+  margin: 5px;
+}
+
+
 .stops {
   width: 450px;
   margin-left: 0px;
@@ -649,10 +670,10 @@ h5{
   border-radius: 10px;
 }
 #r_noLayover{
-  display: none;
+  display:none;
 }
 .r_layover{
-  display: none;
+  display:none;
 }
 .layover-title{
   padding: 8px;
