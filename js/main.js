@@ -33,8 +33,8 @@ var flight = function (origin, destination, stop_number, airline, flightNo, seat
 }
 var layovers = [];
 function layover(departure, arrival, airline, flightNo, seatNo) {
-  this.departure=departure;
-  this.arrival=arrival;
+  this.departure = departure;
+  this.arrival = arrival;
   this.airline = airline;
   this.flightNo = flightNo;
   this.seatNo = seatNo;
@@ -56,42 +56,39 @@ function addLayover(departure, arrival, airline, flightNo, seatNo) {
     },
     rules: {
       //Passenger Info: 
-      first_name: { required: true},
-      last_name: {required: true},
-      nationality: {required: true},
-      passport: {required: true},
-      address: {required: true},
-      city: {required: true},
-      state: {required: true},
-      zipcode: {required: true, digits: true, minlength:5, maxlength:5},
-      email: {required: true, email: true},
-      phone_number: {required: true, digits:true, },
+      first_name: { required: true },
+      last_name: { required: true },
+      nationality: { required: true },
+      passport: { required: true },
+      zipcode: { digits: true, minlength: 5, maxlength: 5 },
+      email: { required: true, email: true },
+      phone_number: { required: true, digits: true, },
       //Flight Info:
-      origin: {required: true},
-      dest: {required: true}
+      origin: { required: true },
+      dest: { required: true }
 
     },
     messages: {
       //Passenger Info: 
-      first_name: { required: 'Required field <i class="zmdi zmdi-info"></i>'},
-      last_name: {required: 'Required field <i class="zmdi zmdi-info"></i>'},
-      nationality: { required: 'Required field <i class="zmdi zmdi-info"></i>'},
-      passport: {required: 'Required field <i class="zmdi zmdi-info"></i>'},
+      first_name: { required: 'Required field <i class="zmdi zmdi-info"></i>' },
+      last_name: { required: 'Required field <i class="zmdi zmdi-info"></i>' },
+      nationality: { required: 'Required field <i class="zmdi zmdi-info"></i>' },
+      passport: { required: 'Required field <i class="zmdi zmdi-info"></i>' },
       zipcode: {
         required: 'Required field <i class="zmdi zmdi-info"></i>',
         digits: 'US postal code is 5 digits <i class="zmdi zmdi-info"></i>',
         minlength: 'US postal code is 5 digits <i class="zmdi zmdi-info"></i>',
         maxlength: 'US postal code is 5 digits <i class="zmdi zmdi-info"></i>'
       },
-      email: {email: 'Not a valid email address <i class="zmdi zmdi-info"></i>'},
-      phone_number: {digits: 'Not a valid phone number <i class="zmdi zmdi-info"></i>'},
+      email: { email: 'Invalid email address <i class="zmdi zmdi-info"></i>' },
+      phone_number: { digits: 'Invalid phone number <i class="zmdi zmdi-info"></i>' },
       //Flight Info:
       //origin: { required: 'Required field <i class="zmdi zmdi-info"></i>'},
       //dest: {required: 'Required field <i class="zmdi zmdi-info"></i>'},
     },
     onfocusout: function (element) {
-       $(element).valid();
-     },
+      $(element).valid();
+    },
   });
   form.steps({
     headerTag: "h3",
@@ -148,8 +145,8 @@ function addLayover(departure, arrival, airline, flightNo, seatNo) {
 
       // Direct flight: 
       // Display Airline, Flight Number and Seat Number
-      if (flight.stop_number ==0) {
-        $('#r_noLayover').css("display","inline-block");
+      if (flight.stop_number == 0) {
+        $('#r_noLayover').css("display", "inline-block");
         flight.airline = $('#airline_0').val()
         flight.flightNo = $('#flightNo_0').val()
         flight.seatNo = $('#seatNo_0').val()
@@ -157,14 +154,14 @@ function addLayover(departure, arrival, airline, flightNo, seatNo) {
       // Layover flight: 
       // Display info for each layover: Airport, airline, flight number, seat number
       else {
-        $('#r_noLayover').css("display","none");
+        $('#r_noLayover').css("display", "none");
         //Clear all value in layovers
         while (layovers.length) {
           layovers.pop();
         }
 
         // Add new layover
-        var num_layover=flight.stop_number+1;
+        var num_layover = flight.stop_number + 1;
         for (var i = 1; i <= num_layover; i++) {
           var de = $('#departure_' + i).val()
           var ar = $('#arrival_' + i).val()
@@ -206,7 +203,7 @@ function addLayover(departure, arrival, airline, flightNo, seatNo) {
       passenger.inChina = in_China;
       passenger.dateChina = date_China;
       passenger.inRegions = in_Regions;
-      passenger.recentCountries= recent_countries;
+      passenger.recentCountries = recent_countries;
       //DEBUGGING
       //alert('inChina :' + inChina + '\ninRegions :' + inRegions + '\ndateChina :' + date_China + '\nrecentCountries :' + recent_countries)
 
@@ -297,13 +294,13 @@ function addLayover(departure, arrival, airline, flightNo, seatNo) {
     },
     onFinishing: function (event, currentIndex) {
       form.validate().settings.ignore = ":disabled";
-      $('#overlay').css("display","block");
+      $('#overlay').css("display", "block");
       //console.log(getCurrentIndex);
       //return form.valid();
       //return form.submit();
     },
     onFinished: function (event, currentIndex) {
-      
+
       //thanks_on();
       //window.location.href = 'newPage.html';
       return form.submit();
@@ -323,7 +320,7 @@ function addLayover(departure, arrival, airline, flightNo, seatNo) {
     digits: "",
     equalTo: "",
     minlength: "",
-    maxlength:""
+    maxlength: ""
   });
   $.dobPicker({
     daySelector: '#dob_date',
@@ -352,59 +349,59 @@ function addLayover(departure, arrival, airline, flightNo, seatNo) {
 
 var stop_element = document.getElementById("stop_number")
 var origin = document.getElementById("origin")
-var destination= document.getElementById("dest")
-var stop_num ;
-var stop_1= document.getElementById("stop_1").querySelector("input")
-var stop_2= document.getElementById("stop_2").querySelector("input")
-var stop_3= document.getElementById("stop_3").querySelector("input")
+var destination = document.getElementById("dest")
+var stop_num;
+var stop_1 = document.getElementById("stop_1").querySelector("input")
+var stop_2 = document.getElementById("stop_2").querySelector("input")
+var stop_3 = document.getElementById("stop_3").querySelector("input")
 if (stop_element) {
   stop_element.addEventListener("change", function (e) {
     //Get stop number
     stop_num = stop_element.options[stop_element.selectedIndex].value;
-    
+
     var many_stops = document.getElementsByClassName("many_stops")
-    var ask_stop= document.getElementById("stopNo").querySelectorAll("p");
+    var ask_stop = document.getElementById("stopNo").querySelectorAll("p");
     //REVIEW
     var r_layover = document.getElementsByClassName("r_layover")
-    
+
     // Stop number = 0 --> Direct flight. Ask for Airline, Flight No, Seat No
     if (stop_num == 0) {
 
       //Display information for Direct Flight
       document.getElementById("no_stops").style.display = "inline-block"
-      
+
       //REVIEW
-      
+
       document.getElementById("r_noLayover").style.display = "inline-block"
-      
+
       // Hide title
-      document.getElementById("ask").style.display="none"
+      document.getElementById("ask").style.display = "none"
       // Hide all "p" in div stopNo
-      for(var i=0; i<ask_stop.length;i++){
-        ask_stop[i].style.display="none"
-     }
+      for (var i = 0; i < ask_stop.length; i++) {
+        ask_stop[i].style.display = "none"
+      }
       for (var i = 0; i < many_stops.length; i++) {
         //Hide many_stop div in Flight Infomation
         many_stops[i].style.display = "none"
-        ask_stop[i].style.display="none"
+        ask_stop[i].style.display = "none"
         //REVIEW
         //Hide layover div in Review
         r_layover[i].style.display = "none"
       }
       //document.getElementsByClassName("many_stops").style.display = "none"
-      
+
     }
     //Stop number > 0
     else {
 
       //Hide Information for Direct Flight
       document.getElementById("no_stops").style.display = "none"
-     
+
       // Hide all "p" in div stopNo
-      for(var i=0; i<ask_stop.length;i++){
-         ask_stop[i].style.display="none"
+      for (var i = 0; i < ask_stop.length; i++) {
+        ask_stop[i].style.display = "none"
       }
-      
+
       for (var i = 0; i < many_stops.length; i++) {
         //Hide many_stop div in Flight Infomation
         many_stops[i].style.display = "none"
@@ -414,93 +411,90 @@ if (stop_element) {
       }
 
       // Show title
-      document.getElementById("ask").style.display="block"
-       //Show question for how many stop
-       document.getElementById("stopNo").style.display="inline-block"
-       
-       //Show question for where layovers are
-       for (var i = 0; i <stop_num; i++) {
-        ask_stop[i].style.display="block"
+      document.getElementById("ask").style.display = "block"
+      //Show question for how many stop
+      document.getElementById("stopNo").style.display = "inline-block"
+
+      //Show question for where layovers are
+      for (var i = 0; i < stop_num; i++) {
+        ask_stop[i].style.display = "block"
       }
 
       //Show layover detail
-       for (var i = 0; i <= stop_num; i++) {
+      for (var i = 0; i <= stop_num; i++) {
         many_stops[i].style.display = "inline-block"
         //REVIEW
         r_layover[i].style.display = "inline-block"
       }
 
       // Auto update location
-      if(stop_num==1){
+      if (stop_num == 1) {
         //alert('arrival_1'+document.getElementById("arrival_1").value)
-        document.getElementById("departure_1").value=origin.value
-        document.getElementById("arrival_1").value= stop_1.value
-        document.getElementById("departure_2").value=stop_1.value
-        document.getElementById("arrival_2").value=destination.value
+        document.getElementById("departure_1").value = origin.value
+        document.getElementById("arrival_1").value = stop_1.value
+        document.getElementById("departure_2").value = stop_1.value
+        document.getElementById("arrival_2").value = destination.value
       }
-      if(stop_num==2){
-        document.getElementById("departure_1").value=origin.value
-        document.getElementById("arrival_1").value=stop_1.value
-        document.getElementById("departure_2").value=stop_1.value
-        document.getElementById("arrival_2").value=stop_2.value
-        document.getElementById("departure_3").value=stop_2.value
-        document.getElementById("arrival_3").value=destination.value
+      if (stop_num == 2) {
+        document.getElementById("departure_1").value = origin.value
+        document.getElementById("arrival_1").value = stop_1.value
+        document.getElementById("departure_2").value = stop_1.value
+        document.getElementById("arrival_2").value = stop_2.value
+        document.getElementById("departure_3").value = stop_2.value
+        document.getElementById("arrival_3").value = destination.value
       }
-      if(stop_num==3){
-        document.getElementById("departure_1").value=origin.value
-        document.getElementById("arrival_1").value=stop_1.value
-        document.getElementById("departure_2").value=stop_1.value
-        document.getElementById("arrival_2").value=stop_2.value
-        document.getElementById("departure_3").value=stop_2.value
-        document.getElementById("arrival_3").value=stop_3.value
-        document.getElementById("departure_4").value=stop_3.value
-        document.getElementById("arrival_4").value=destination.value
+      if (stop_num == 3) {
+        document.getElementById("departure_1").value = origin.value
+        document.getElementById("arrival_1").value = stop_1.value
+        document.getElementById("departure_2").value = stop_1.value
+        document.getElementById("arrival_2").value = stop_2.value
+        document.getElementById("departure_3").value = stop_2.value
+        document.getElementById("arrival_3").value = stop_3.value
+        document.getElementById("departure_4").value = stop_3.value
+        document.getElementById("arrival_4").value = destination.value
       }
     }
   });
 }
 // Assign value for layover element
 
-if(origin){
-  origin.addEventListener("change",function(){
-    document.getElementById("departure_1").value=origin.value
+if (origin) {
+  origin.addEventListener("change", function () {
+    document.getElementById("departure_1").value = origin.value
   });
 }
-if(destination){
-  destination.addEventListener("change",function(){
+if (destination) {
+  destination.addEventListener("change", function () {
     //Update new value stop_num
     stop_num = stop_element.options[stop_element.selectedIndex].value;
-    if(stop_num==1)
-    {
-      document.getElementById("arrival_2").value=destination.value
+    if (stop_num == 1) {
+      document.getElementById("arrival_2").value = destination.value
     }
-    if(stop_num==2)
-    {
-      document.getElementById("arrival_3").value=destination.value
+    if (stop_num == 2) {
+      document.getElementById("arrival_3").value = destination.value
     }
-    if(stop_num==3)
-    {
-      document.getElementById("arrival_4").value=destination.value
+    if (stop_num == 3) {
+      document.getElementById("arrival_4").value = destination.value
     }
   });
 }
 
-if(stop_1){
-  stop_1.addEventListener("change",function(){
-    document.getElementById("arrival_1").value=stop_1.value
-    document.getElementById("departure_2").value=stop_1.value
+if (stop_1) {
+  stop_1.addEventListener("change", function () {
+    document.getElementById("arrival_1").value = stop_1.value
+    document.getElementById("departure_2").value = stop_1.value
   });
 }
-if(stop_2){
-  stop_2.addEventListener("change",function(){
-    document.getElementById("arrival_2").value=stop_2.value
-    document.getElementById("departure_3").value=stop_2.value
+if (stop_2) {
+  stop_2.addEventListener("change", function () {
+    document.getElementById("arrival_2").value = stop_2.value
+    document.getElementById("departure_3").value = stop_2.value
   });
 }
-if(stop_3){
-  stop_3.addEventListener("change",function(){
-    document.getElementById("arrival_3").value=stop_3.value
-    document.getElementById("departure_4").value=stop_3.value
+if (stop_3) {
+  stop_3.addEventListener("change", function () {
+    document.getElementById("arrival_3").value = stop_3.value
+    document.getElementById("departure_4").value = stop_3.value
   });
 }
 
@@ -631,5 +625,5 @@ function thanks_off() {
   document.getElementById("overlay").style.display = "none";
   window.location.href = 'index.html'
 }
-document.getElementById("done").addEventListener("click",thanks_off);
+document.getElementById("done").addEventListener("click", thanks_off);
 
