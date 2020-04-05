@@ -1,27 +1,131 @@
-<?php
-$servername = "localhost";
-$username = "root";
-$password = "wit123";
-$dbname = "covid-declaration";
+<html>
+<body>
 
-//connect to database server
-$con = mysql_connect($servername,$username,$password);
+<?php
+$servername = 'localhost';
+$username = 'root';
+$password = 'wit123';
+$dbname = 'covid_declaration';
+
+//connect to database server$cough = mysqli_real_escape_string($con, $_REQUEST['r_cough']);
+$con = mysqli_connect($servername,$username,$password,$dbname);
 //check for connection
 if (!$con) {
-	die('Connection failed: ' . mysql_error());
+	die('Connection failed: ' . mysqli_error($con));
 }
-//select database
-mysql_select_db($dbname,$con);
 
-$sql="INSERT into passenger (passportNo, nationality, firstName, middleName, lastName, DOB, street, city, state, zipcode, email, phone, phone, mobile, fever, cough, difficultyBreathing)
-VALUES
-('$_POST[passenger]','$_POST[nationality]','$_POST[firstName]','$_POST[middleName]','$_POST[lastName]','$_POST[birthday]','$_POST[gender]','$_POST[st_address]','$_POST[city]','$_POST[state]','$_POST[selected]','$_POST[zip]','$_POST[email]','$_POST[phone number]','$_POST[mobile]')";
+//escape character security
+$passport = mysqli_real_escape_string($con, $_REQUEST['passport']);
+$nationality = mysqli_real_escape_string($con, $_REQUEST['nationality']);
+$firstName = mysqli_real_escape_string($con, $_REQUEST['first_name']);
+$middleName = mysqli_real_escape_string($con, $_REQUEST['middle_name']);
+$lastName = mysqli_real_escape_string($con, $_REQUEST['last_name']);
+$DOB = mysqli_real_escape_string($con, $_REQUEST['dob_date']);
+$gender = mysqli_real_escape_string($con, $_REQUEST['gender']);
+$street = mysqli_real_escape_string($con, $_REQUEST['address']);
+$city = mysqli_real_escape_string($con, $_REQUEST['city']);
+$state = mysqli_real_escape_string($con, $_REQUEST['state']);
+$zipcode = mysqli_real_escape_string($con, $_REQUEST['zipcode']);
+$email = mysqli_real_escape_string($con, $_REQUEST['email']);
+$phone = mysqli_real_escape_string($con, $_REQUEST['phone_number']);
+//$mobile = mysqli_real_escape_string($con, $_REQUEST['mobile']);
+//$inChina = mysqli_real_escape_string($con, $_REQUEST['inChina']);
+//$date_inChina = mysqli_real_escape_string($con, $_REQUEST['dateChina']);
+//$fever = mysqli_real_escape_string($con, $_REQUEST['r_fever']);
+//$cough = mysqli_real_escape_string($con, $_REQUEST['r_cough']);
+//$difficulityBreathing = mysqli_real_escape_string($con, $_REQUEST['r_breath']);
+$origin = mysqli_real_escape_string($con, $_REQUEST['origin']);
+$destination = mysqli_real_escape_string($con, $_REQUEST['dest']);
+$stopNo = mysqli_real_escape_string($con, $_REQUEST['stop_number']);
 
-if (!mysql_query($sql,$con)){
-	die('Error: ' . mysql_error());
+$sql="INSERT into passenger (
+	passportNo,
+	nationality,
+	firstName,
+	middleName,
+	lastName,
+	DOB,gender,
+	street,
+	city,
+	state,
+	zipcode,
+	email,
+	phone,
+--	mobile,
+--	inChina,
+--	date_inChina,
+--	fever,
+--	cough,
+--	difficulityBreathing)
+VALUES (
+	'$passport',
+	'$nationality',
+	'$firstName',
+	'$middleName',
+	'$lastName',
+	'$DOB',
+	'$gender',
+	'$street',
+	'$city',
+	'$state',
+	'$zipcode',
+	'$email',
+	'$phone',
+--	'mobile',
+--	'inChina',
+--	'fever',
+--	'cough',
+--	'difficulityBreathing'
+	);
+	
+INSERT into flight (
+	origin,
+	destination,
+	stopNo)
+VALUES (
+	'$origin',
+	'$destination',
+	'$stopNo');
+	
+SET @flight = LAST_INSERT_ID();
+
+CREATE procedure add_stop()
+wholeblock:BEGIN
+	DECLARE x INT;
+	SET x = 1;
+	
+	loop_add: LOOP
+		IF x > $stopNo THEN
+			LEAVE loop_add;
+		END IF;
+		INSERT into layover (
+			flightID,
+			stopNo,
+			origin,
+			destination,
+			flightNo,
+			seatNo)
+		VALUES (
+			'@flight',
+			x,
+			-- concat('departure_1',x),
+			-- concat('arrival_1',x),
+			-- concat('flightNo_1',x),
+			-- concat('seatNo_1',x);
+			
+		SET x = x + 1;
+		ITERATE loop_add;
+	END LOOP;
+	";
+
+if (!mysqli_query($con,$sql)){
+	die('Error: ' . mysqli_error($con));
 }
 echo "submission added";
-
-mysql_close($con)
-
+//Go back to Home page
+//header("index.html")
+mysqli_close($con)
 ?>
+
+</body>
+</html>

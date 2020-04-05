@@ -86,8 +86,8 @@ function addLayover(departure, arrival, airline, flightNo, seatNo) {
       email: {email: 'Not a valid email address <i class="zmdi zmdi-info"></i>'},
       phone_number: {digits: 'Not a valid phone number <i class="zmdi zmdi-info"></i>'},
       //Flight Info:
-      origin: { required: 'Required field <i class="zmdi zmdi-info"></i>'},
-      dest: {required: 'Required field <i class="zmdi zmdi-info"></i>'},
+      //origin: { required: 'Required field <i class="zmdi zmdi-info"></i>'},
+      //dest: {required: 'Required field <i class="zmdi zmdi-info"></i>'},
     },
     onfocusout: function (element) {
        $(element).valid();
@@ -149,6 +149,7 @@ function addLayover(departure, arrival, airline, flightNo, seatNo) {
       // Direct flight: 
       // Display Airline, Flight Number and Seat Number
       if (flight.stop_number ==0) {
+        $('#r_noLayover').css("display","inline-block");
         flight.airline = $('#airline_0').val()
         flight.flightNo = $('#flightNo_0').val()
         flight.seatNo = $('#seatNo_0').val()
@@ -156,7 +157,7 @@ function addLayover(departure, arrival, airline, flightNo, seatNo) {
       // Layover flight: 
       // Display info for each layover: Airport, airline, flight number, seat number
       else {
-
+        $('#r_noLayover').css("display","none");
         //Clear all value in layovers
         while (layovers.length) {
           layovers.pop();
@@ -296,14 +297,16 @@ function addLayover(departure, arrival, airline, flightNo, seatNo) {
     },
     onFinishing: function (event, currentIndex) {
       form.validate().settings.ignore = ":disabled";
+      $('#overlay').css("display","block");
       //console.log(getCurrentIndex);
       //return form.valid();
-      return form.submit();
+      //return form.submit();
     },
     onFinished: function (event, currentIndex) {
-      alert('Submited');
+      
+      //thanks_on();
       //window.location.href = 'newPage.html';
-      //return form.submit();
+      return form.submit();
     },
     // onInit : function (event, currentIndex) {
     //     event.append('demo');
@@ -371,7 +374,9 @@ if (stop_element) {
       document.getElementById("no_stops").style.display = "inline-block"
       
       //REVIEW
+      
       document.getElementById("r_noLayover").style.display = "inline-block"
+      
       // Hide title
       document.getElementById("ask").style.display="none"
       // Hide all "p" in div stopNo
@@ -407,6 +412,7 @@ if (stop_element) {
         // Hide layover div in Review
         r_layover[i].style.display = "none"
       }
+
       // Show title
       document.getElementById("ask").style.display="block"
        //Show question for how many stop
@@ -614,8 +620,16 @@ if (notShortBreath) {
 }
 
 ///////////////////////////////////////////////
-// Submit                              //
-///////////////////////////////////////////////
+// Submmittion                              //
+/////////////////////////////////////////////
+//Show thank you
+function thanks_on() {
+  document.getElementById("overlay").style.display = "block";
+}
 
-
+function thanks_off() {
+  document.getElementById("overlay").style.display = "none";
+  window.location.href = 'index.html'
+}
+document.getElementById("done").addEventListener("click",thanks_off);
 

@@ -16,13 +16,13 @@
 </head>
 
 <body>
-
+     
     <div class="main">
 
         <div class="container">
             <h2>Health Declaration Form </h2>
 
-            <form method="POST" id="health-form" action="submit_form.php" class="health-form">
+            <form method="POST" id="health-form" class="health-form"> <!--action="submit_form.php">-->
                 <!-- Personal Information -->
                 <h3>
                     <span class="title_text">Personal Information</span>
@@ -379,16 +379,16 @@
                         </div>
                         <div id="no_stops"class="form-flight">
                                 <lable class="layover-title">Enter your flight information:</lable>
-                                <p><input id="airline_0" placeholder="What is the Airline?" /></p>
-                                <p><input id="flightNo_0" placeholder="Flight number" /></p>
-                                <p><input id="seatNo_0" placeholder="Seat number" /></p>
+                                <p><input id="airline_0"  name="airline_0"placeholder="What is the Airline?" /></p>
+                                <p><input id="flightNo_0" name="flightNo_0" placeholder="Flight number" /></p>
+                                <p><input id="seatNo_0" name="seatNo_0"placeholder="Seat number" /></p>
                         </div> 
                         <!-- Ask for stops -->
                         <div id="stopNo" class="form-flight">
                                 <lable class="layover-title">Where did you layover? </lable>
-                                <p id="stop_1"><input  placeholder="Your first layover" /></p>
-                                <p id="stop_2"><input  placeholder="Your second layover" /></p>
-                                <p id="stop_3"><input  placeholder="Your third layover" /></p>
+                                <p id="stop_1"><input name="stop_1" placeholder="Your first layover" /></p>
+                                <p id="stop_2"><input name="stop_2" placeholder="Your second layover" /></p>
+                                <p id="stop_3"><input name="stop_3" placeholder="Your third layover" /></p>
 
                         </div>
                         <!-- LAYOVER INFORMATION -->
@@ -397,47 +397,47 @@
                         <div class = "many_stops">
                             <div class="from-to">
                                 <label class="stops">From</label>
-                                <input id="departure_1" class="from" disabled />
+                                <input id="departure_1" name="departure_1" class="from" disabled />
                                 <label class="stops">To</label>
-                                <input id="arrival_1" class="to" disabled />
+                                <input id="arrival_1" name ="arrival_1"class="to" disabled />
                             </div>
-                            <p><input id="airline_1" placeholder="Airline " /></p>
-                            <p><input id="flightNo_1" placeholder="Flight number" /></p>
-                            <p><input id="seatNo_1" placeholder="Seat number" /></p>
+                            <p><input id="airline_1" name="airline_1" placeholder="Airline " /></p>
+                            <p><input id="flightNo_1" name ="flightNo_1" placeholder="Flight number" /></p>
+                            <p><input id="seatNo_1"name ="seatNo_1" placeholder="Seat number" /></p>
                         </div>
 
                         <div class ="many_stops">
                             <div class="from-to">
                                 <label class="stops">From</label>
-                                <input id="departure_2" class="from" disabled/>
+                                <input id="departure_2" name ="departure_2" class="from" disabled/>
                                 <label class="stops">To</label>
-                                <input id="arrival_2" class="to" disabled />
+                                <input id="arrival_2"  name="arrival_2" class="to" disabled />
                             </div>
-                            <p><input id="airline_2" placeholder="Airline " /></p>
-                            <p><input id="flightNo_2" placeholder="Flight number" /></p>
-                            <p><input id="seatNo_2" placeholder="Seat number" /></p>
+                            <p><input id="airline_2"  name="airline_2" placeholder="Airline " /></p>
+                            <p><input id="flightNo_2" name="flightNo_2" placeholder="Flight number" /></p>
+                            <p><input id="seatNo_2" name="seatNo_2" placeholder="Seat number" /></p>
                         </div>
                         <div class ="many_stops">
                             <div class="from-to">
                                 <label class="stops">From</label>
-                                <input id="departure_3" class="from" disabled />
+                                <input id="departure_3" name="departure_3" class="from" disabled />
                                 <label class="stops">To</label>
-                                <input id="arrival_3" class="to" disabled />
+                                <input id="arrival_3" name="arrival_3"class="to" disabled />
                             </div>
-                            <p><input id="airline_3" placeholder="Airline " /></p>
-                            <p><input id="flightNo_3" placeholder="Flight number" /></p>
-                            <p><input id="seatNo_3" placeholder="Seat number" /></p>
+                            <p><input id="airline_3" name ="airline_3" placeholder="Airline " /></p>
+                            <p><input id="flightNo_3" name ="flightNo_3" placeholder="Flight number" /></p>
+                            <p><input id="seatNo_3" name="seatNo_3" placeholder="Seat number" /></p>
                         </div>
                         <div class ="many_stops">
                             <div class="from-to">
                                 <label class="stops">From</label>
-                                <input id="departure_4" class="from" disabled />
+                                <input id="departure_4" name="departure_4" class="from" disabled />
                                 <label class="stops">To</label>
-                                <input id="arrival_4" class="to" disabled />
+                                <input id="arrival_4" name="arrival_4" class="to" disabled />
                             </div>
-                            <p><input id="airline_4" placeholder="Airline " /></p>
-                            <p><input id="flightNo_4" placeholder="Flight number" /></p>
-                            <p><input id="seatNo_4" placeholder="Seat number" /></p>
+                            <p><input id="airline_4" name="airline_4" placeholder="Airline " /></p>
+                            <p><input id="flightNo_4" name="flightNo_4" placeholder="Flight number" /></p>
+                            <p><input id="seatNo_4" name="seatNo_4" placeholder="Seat number" /></p>
                         </div>
                     </div>
                     <div class="fieldset-footer">
@@ -456,22 +456,22 @@
                             <label for="inChina" class="travel_history header">In the past 3 months, have you been to
                                 Republic of China?</label>
                             <label class="switch">
-                                <input id="inChina" type="checkbox">
+                                <input id="inChina" name="inChina" type="checkbox">
                                 <span class="slider round"></span>
                             </label>
                         </div>
                         <div class="form-travel" id="dateChina">
                             <div class="form-group">
-                                <label for="origin" class="travel_history ">Please enter the last day you visited China</label>
-                                <textarea name="origin" id="date_China" placeholder="Enter specific date"></textarea>
+                                <label for="date_China" class="travel_history ">Please enter the last day you visited China</label>
+                                <textarea name="date_China" id="date_China" placeholder="Enter specific date"></textarea>
                             </div>
 
                         </div>
                         <div class="form-travel">
-                            <label for="inRegion" class="travel_history header">In the past 14 days, have you been to
+                            <label for="inRegion"  class="travel_history header">In the past 14 days, have you been to
                                 any of the other countries or geographic regions listed:</label>
                             <label class="switch">
-                                <input id="inRegions" type="checkbox">
+                                <input id="inRegions" name="inRegions" type="checkbox">
                                 <span class="slider round"></span>
                             </label>
                             <div class="region_list">
@@ -487,7 +487,7 @@
                             <div class="form-group">
                                 <label for="origin" class="travel_history ">Which countries or geographic regions have
                                     been?</label>
-                                <textarea name="origin" id="recent_countries" placeholder="Enter the countries/regions"></textarea>
+                                <textarea name="recent_countries" id="recent_countries" placeholder="Enter the countries/regions"></textarea>
                             </div>
 
                         </div>
@@ -772,8 +772,20 @@
                 </fieldset>
 
             </form>
+           
         </div>
 
+    </div>
+    <!-- Show Thank you after submitting -->
+    <div id="overlay">
+        <div id="text">
+            <div id="thank-you">
+                <img src="images/check.png" alt="Thank You">
+                <p>Thank You</p>
+                <p>The form was submitted successfully.</p>
+                <button id="done"class="btn_done">Done</button>
+            </div>
+        </div>
     </div>
 
     <!-- JS -->
