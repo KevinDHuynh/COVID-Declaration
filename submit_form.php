@@ -15,9 +15,6 @@ if (!$con) {
 }
 
 //escape character security
-$fever = mysqli_real_escape_string($con, $_REQUEST['fever']);
-$cough = mysqli_real_escape_string($con, $_REQUEST['cough']);
-$shortBreath = mysqli_real_escape_string($con, $_REQUEST['shortBreath']);
 $passport = mysqli_real_escape_string($con, $_REQUEST['passport']);
 $nationality = mysqli_real_escape_string($con, $_REQUEST['nationality']);
 $firstName = mysqli_real_escape_string($con, $_REQUEST['first_name']);
@@ -38,6 +35,30 @@ $recent_countries = mysqli_real_escape_string($con, $_REQUEST['recent_countries'
 $origin = mysqli_real_escape_string($con, $_REQUEST['origin']);
 $destination = mysqli_real_escape_string($con, $_REQUEST['dest']);
 $stopNo = mysqli_real_escape_string($con, $_REQUEST['stop_number']);
+/*
+$departure_1 = mysqli_real_escape_string($con, $_REQUEST['departure_1']);
+$arrival_1 = mysqli_real_escape_string($con, $_REQUEST['arrival_1']);
+$flightNo_1 = mysqli_real_escape_string($con, $_REQUEST['flightNo_1']);
+$seatNo_1 =  mysqli_real_escape_string($con, $_REQUEST['seatNo_1']);
+
+$departure_2 = mysqli_real_escape_string($con, $_REQUEST['departure_2']);
+$arrival_2 = mysqli_real_escape_string($con, $_REQUEST['arrival_2']);
+$flightNo_2 = mysqli_real_escape_string($con, $_REQUEST['flightNo_2']);
+$seatNo_2 =  mysqli_real_escape_string($con, $_REQUEST['seatNo_2']);
+
+$departure_3 = mysqli_real_escape_string($con, $_REQUEST['departure_3']);
+$arrival_3 = mysqli_real_escape_string($con, $_REQUEST['arrival_3']);
+$flightNo_3 = mysqli_real_escape_string($con, $_REQUEST['flightNo_3']);
+$seatNo_3 =  mysqli_real_escape_string($con, $_REQUEST['seatNo_3']);
+
+$departure_4 = mysqli_real_escape_string($con, $_REQUEST['departure_4']);
+$arrival_4 = mysqli_real_escape_string($con, $_REQUEST['arrival_4']);
+$flightNo_4 = mysqli_real_escape_string($con, $_REQUEST['flightNo_4']);
+$seatNo_4 =  mysqli_real_escape_string($con, $_REQUEST['seatNo_4']);
+*/
+$fever = mysqli_real_escape_string($con, $_REQUEST['fever']);
+$cough = mysqli_real_escape_string($con, $_REQUEST['cough']);
+$shortBreath = mysqli_real_escape_string($con, $_REQUEST['shortBreath']);
 
 $sql="INSERT into passenger (
 	passportNo,
@@ -96,14 +117,50 @@ VALUES (
 	'$stopNo',
 	'$passengerID')";
 	
-if (!mysqli_query($con,$sql)){
+if (mysqli_query($con, $sql)) {
+    $flightID = mysqli_insert_id($con);
+}
+
+/*
+$sql_layover = "";
+$departure = "";
+$arrival="";
+$airline="";
+$flightNo="";
+$seatNo="";
+
+for ($i = 1; $i<= $stopNo; i++){
+	$departure=${'departure_'.$i};
+	$arrival=${'arrival_'.$i};
+	$flightNo=${'flightNo_'.$i};
+	$seatNo=${'seatNo_'.$i};
+	$sql_layover += "
+	INSERT into layover (
+		flightID,
+		stopNo,
+		origin,
+		destination,
+		flightNo,
+		seatNo)
+	VALUES(
+		'$flightID',
+		'$i',
+		'$departure',
+		'$arrival',
+		'$flightNo',
+		'$seatNo');";
+}
+	
+if (!mysqli_query($con,$sql_layover)){
 	die('Error: ' . mysqli_error($con));
 }
-echo "submission added";
-//Go back to Home page
-//header("index.html")
-mysqli_close($con)
 
+*/
+echo "submission added";
+
+mysqli_close($con);
+
+header("index.html")
 ?>
 
 </body>
