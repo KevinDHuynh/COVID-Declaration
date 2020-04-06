@@ -13,7 +13,7 @@ body {font-family: "Lato", sans-serif;
   height: 700px;
 }
 
-/* Style the buttons inside the tab */
+/* Style tab buttons */
 .tab button {
   display: block;
   background-color: inherit;
@@ -49,13 +49,13 @@ body {font-family: "Lato", sans-serif;
   background-color: #f1f1f1 ;
 }
 
-/* Logout */
+/* Logout button */
 #logout-btn {
   float: right;
   padding: 6px 10px;
   margin-top: 8px;
   margin-right: 16px;
-  background-color: rgb(139, 141, 141,0.5);
+  background-color: slategray;
   color: whitesmoke;
   font-size: 17px;
   border: none;
@@ -68,4 +68,39 @@ body {font-family: "Lato", sans-serif;
 #logout-btn  a, a:visited{
   text-decoration: none;
   color: whitesmoke;
+}
+
+
+/*search bar and search button */
+
+#search_string {
+  padding: 10px;
+  font-size: 17px;
+  border: 1px solid grey;
+  float: left;
+  width: 80%;
+  background: #f1f1f1;
+}
+
+
+#search-btn {
+  float: right;
+  width: 20%;
+  padding: 10px;
+  background-color: rgb(48, 91, 126);
+  color: white;
+  font-size: 17px;
+  border: 1px solid grey;
+  border-left: none;
+  cursor: pointer;
+}
+
+#search-btn button:hover {
+  background:slategray;
+}
+
+#search-btn ::after {
+  content: "";
+  clear: both;
+  display: table;
 }
