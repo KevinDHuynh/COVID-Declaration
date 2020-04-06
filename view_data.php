@@ -89,7 +89,7 @@ if ($error != null) {
         <div class="container">
 
             <div class="tab">
-                <button class="active" onclick="showTableContent(event, 'passenger')" id="defaultOpen">Passenger</button>
+                <button class="tablinks" onclick="showTableContent(event, 'passenger')" id="defaultOpen">Passenger</button>
                 <button class="tablinks" onclick="showTableContent(event, 'graphs')">Distrubution</button>
 
             </div>
@@ -98,12 +98,9 @@ if ($error != null) {
             <div id="passenger" class="tabcontent">
                 <h2>Search Passenger </h2>
                 <form method="POST">
-                    <fieldset>
-                        <p>Please enter passenger's last name or passport number</p>
-                        <input type="text" name="search" placeholder="Enter search string..." />
-                        <input type="submit" name="submit" value="Search" />
-                    </fieldset>
-                </form><br />
+                    <input type="text" name="search" id="search_string" placeholder="Please enter passenger's last name or passport number" />
+                    <input type="submit" name="submit" id="search-btn" value="Search" /><br /><br />
+                </form>
 
                 <!-- Passenger content: Table -->
                 <div>
@@ -113,24 +110,11 @@ if ($error != null) {
                         });
                         google.charts.setOnLoadCallback(drawTable);
 
-                        function drawTable() {
-                            var data = new google.visualization.DataTable();
-                            data.addColumn('string', 'First Name');
-                            data.addColumn('string', 'Last Name');
-                            data.addColumn('string', 'Passport Number');
-                            data.addColumn('string', 'Nationality');
-                            data.addColumn('boolean', 'Visited China');
-                            data.addColumn('boolean', 'Visited Restricted Regions');
-                            data.addColumn('boolean', 'Cough');
-                            data.addColumn('boolean', 'Fever');
-                            data.addColumn('boolean', 'Difficulty Breathing');
-                            data.addColumn('string', 'Email');
-
-                            data.addRows([
-                                <?php
-                                if (isset($_POST['search'])) {
-                                    $searchQuery = $_POST['search'];
-                                    $sql = "Select 
+                        <?php
+                        //search 
+                        if (isset($_POST['search'])) {
+                            $searchQuery = $_POST['search'];
+                            $sql = "Select 
                                                     firstName,
                                                     lastName,
                                                     passportNo, 
@@ -143,31 +127,48 @@ if ($error != null) {
                                                     email
                                                 from 
                                                     passenger 
-                                                WHERE passportNo LIKE '%$searchQuery%'OR LastName LIKE '%$searchQuery%'";
-                                    $result = mysqli_query($connect, $sql);
-                                    if ($result->num_rows > 0) {
-                                        while ($row = mysqli_fetch_array($result)) {
-                                            echo "[
+                                                WHERE passportNo LIKE '%$searchQuery%'OR LastName LIKE '%$searchQuery%'"; //search by passport number or by last name
+                            $result = mysqli_query($connect, $sql);
+                            //only display table if the there is result
+                            if ($result->num_rows > 0) {
+                        ?>
+                                //draw table
+                                function drawTable() {
+                                    var data = new google.visualization.DataTable();
+                                    data.addColumn('string', 'First Name');
+                                    data.addColumn('string', 'Last Name');
+                                    data.addColumn('string', 'Passport Number');
+                                    data.addColumn('string', 'Nationality');
+                                    data.addColumn('boolean', 'Visited China');
+                                    data.addColumn('boolean', 'Visited Restricted Regions');
+                                    data.addColumn('boolean', 'Cough');
+                                    data.addColumn('boolean', 'Fever');
+                                    data.addColumn('boolean', 'Difficulty Breathing');
+                                    data.addColumn('string', 'Email');
+
+                                    //add rows
+                                    data.addRows([
+                                    <?php
+                                    while ($row = mysqli_fetch_array($result)) {
+                                        echo "[
                                                  '" . $row["firstName"] . "','" . $row["lastName"] . "','" . $row["passportNo"] . "','" . $row["nationality"] . "',
                                                  " . $row["inChina"] . "," . $row["inRegions"] . ", " . $row["cough"] . "," . $row["fever"] . "," . $row["difficultyBreathing"] . ",
                                                  '" . $row["email"] . "'
                                                 ], ";
-                                        }
-                                    } else {
-                                        echo "No search results!";
-                                    }
+                                    } //end while 
+                                } //end drawTable()
+                            }
+                                    ?>
+                                    ]); //end of add row
+
+                                    var table = new google.visualization.Table(document.getElementById('table_div'));
+
+                                    table.draw(data, {
+                                        showRowNumber: true,
+                                        width: '100%',
+                                        height: '400'
+                                    });
                                 }
-                                ?>
-                            ]);
-
-                            var table = new google.visualization.Table(document.getElementById('table_div'));
-
-                            table.draw(data, {
-                                showRowNumber: true,
-                                width: '100%',
-                                height: '400'
-                            });
-                        }
                     </script>
                     <div id="table_div"></div>
                 </div>
