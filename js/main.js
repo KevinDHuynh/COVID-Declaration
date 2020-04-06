@@ -215,6 +215,7 @@ function addLayover(departure, arrival, airline, flightNo, seatNo) {
       var cough = "No", fever = "No", shortBreathing = "No"
       if ($('#isFever').hasClass('true')) {
         fever = "Yes"
+
       }
       if ($('#isCough').hasClass('true')) {
         cough = "Yes"
@@ -550,6 +551,8 @@ if (isFever) {
       notFever.classList.remove("false")
     }
     isFever.classList.add("true")
+    document.getElementById("isfever").checked=true
+    document.getElementById("notfever").checked=false
     //alert(isFever.className)
   });
 }
@@ -561,6 +564,8 @@ if (notFever) {
       isFever.classList.remove("true")
     }
     notFever.classList.add("false")
+    document.getElementById("isfever").checked=false
+    document.getElementById("notfever").checked=true
     //alert(notFever.className)
   });
 }
@@ -573,6 +578,8 @@ if (isCough) {
       notCough.classList.remove("false")
     }
     isCough.classList.add("true")
+    document.getElementById("iscough").checked=true
+    document.getElementById("notcough").checked=false
     // alert(isCough.className)
   });
 }
@@ -585,6 +592,8 @@ if (notCough) {
       isCough.classList.remove("true")
     }
     notCough.classList.add("false")
+    document.getElementById("iscough").checked=false
+    document.getElementById("notcough").checked=true
     //alert(notCough.className)
   });
 }
@@ -597,7 +606,11 @@ if (isShortBreath) {
       notShortBreath.classList.remove("false")
     }
     isShortBreath.classList.add("true")
+    document.getElementById("shortbreath").checked=true
+    document.getElementById("notshortbreath").checked=false
     //alert(isShortBreath.className)
+    
+    
   });
 }
 
@@ -609,7 +622,10 @@ if (notShortBreath) {
       isShortBreath.classList.remove("true")
     }
     notShortBreath.classList.add("false")
+    document.getElementById("shortbreath").checked=false
+    document.getElementById("notshortbreath").checked=true
     //alert(notShortBreath.className)
+    
   });
 }
 
