@@ -1,0 +1,10 @@
+  <script>
+   $(document).ready(function () {
+    $('#submit').click(function(){
+      if($('#username').val()== 'admin'&& $('#password').val()== 'admin'){
+        window.location.replace("http://stackoverflow.com");
+   }else{
+      alert('Incorrect usernanme or password!');
+   }
+  });
+});
