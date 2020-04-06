@@ -121,3 +121,25 @@ background-color:#468ab1;
     margin:0 auto;
     }
 } 
+
+/* Login */
+#login-btn {
+    float: right;
+    padding: 6px 10px;
+    margin-top: 8px;
+    margin-right: 16px;
+    background-color: rgb(139, 141, 141,0.5);
+    color: whitesmoke;
+    font-size: 17px;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+  }
+  #login-btn a{
+      text-decoration: none;
+  }
+  #login-btn  a, a:visited{
+    text-decoration: none;
+    color: whitesmoke;
+}
+
