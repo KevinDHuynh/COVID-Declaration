@@ -28,12 +28,11 @@ $state = mysqli_real_escape_string($con, $_REQUEST['state']);
 $zipcode = mysqli_real_escape_string($con, $_REQUEST['zipcode']);
 $email = mysqli_real_escape_string($con, $_REQUEST['email']);
 $phone = mysqli_real_escape_string($con, $_REQUEST['phone_number']);
-//$mobile = mysqli_real_escape_string($con, $_REQUEST['mobile']);
-//$inChina = mysqli_real_escape_string($con, $_REQUEST['inChina']);
-//$date_inChina = mysqli_real_escape_string($con, $_REQUEST['dateChina']);
-//$fever = mysqli_real_escape_string($con, $_REQUEST['r_fever']);
-//$cough = mysqli_real_escape_string($con, $_REQUEST['r_cough']);
-//$difficulityBreathing = mysqli_real_escape_string($con, $_REQUEST['r_breath']);
+$inChina = mysqli_real_escape_string($con, $_REQUEST['inChina']);
+$date_inChina = mysqli_real_escape_string($con, $_REQUEST['dateChina']);
+//$fever = mysqli_real_escape_string($con, $_REQUEST['fever']);
+//$cough = mysqli_real_escape_string($con, $_REQUEST['cough']);
+//$difficulityBreathing = mysqli_real_escape_string($con, $_REQUEST['shortBreathing']);
 $origin = mysqli_real_escape_string($con, $_REQUEST['origin']);
 $destination = mysqli_real_escape_string($con, $_REQUEST['dest']);
 $stopNo = mysqli_real_escape_string($con, $_REQUEST['stop_number']);
@@ -44,79 +43,62 @@ $sql="INSERT into passenger (
 	firstName,
 	middleName,
 	lastName,
-	DOB,gender,
+	DOB,
+	gender,
 	street,
 	city,
 	state,
 	zipcode,
 	email,
 	phone,
---	mobile,
---	inChina,
---	date_inChina,
---	fever,
---	cough,
---	difficulityBreathing)
+	inchina,
+	date_inChina)
 VALUES (
 	'$passport',
 	'$nationality',
 	'$firstName',
-	'$middleName',
+	NULLIF('$middleName',''),
 	'$lastName',
-	'$DOB',
+	NULLIF('$DOB',''),
 	'$gender',
-	'$street',
+	NULLIF('$street',''),
 	'$city',
 	'$state',
 	'$zipcode',
 	'$email',
 	'$phone',
---	'mobile',
---	'inChina',
---	'fever',
---	'cough',
---	'difficulityBreathing'
-	);
+	'$inchina'
+	NULLIF('$date_inChina',''));";
 	
-INSERT into flight (
-	origin,
-	destination,
-	stopNo)
-VALUES (
-	'$origin',
-	'$destination',
-	'$stopNo');
-	
-SET @flight = LAST_INSERT_ID();
+//SET @flight = LAST_INSERT_ID();
 
-CREATE procedure add_stop()
-wholeblock:BEGIN
-	DECLARE x INT;
-	SET x = 1;
-	
-	loop_add: LOOP
-		IF x > $stopNo THEN
-			LEAVE loop_add;
-		END IF;
-		INSERT into layover (
-			flightID,
-			stopNo,
-			origin,
-			destination,
-			flightNo,
-			seatNo)
-		VALUES (
-			'@flight',
-			x,
-			-- concat('departure_1',x),
-			-- concat('arrival_1',x),
-			-- concat('flightNo_1',x),
-			-- concat('seatNo_1',x);
-			
-		SET x = x + 1;
-		ITERATE loop_add;
-	END LOOP;
-	";
+//CREATE procedure add_stop()
+//wholeblock:BEGIN
+//	DECLARE x INT;
+//	SET x = 1";
+//	
+//	loop_add: LOOP
+//		IF x > $stopNo THEN
+//			LEAVE loop_add;
+//		END IF;
+//		INSERT into layover (
+//			flightID,
+//			stopNo,
+//			origin,
+//			destination,
+//			flightNo,
+//			seatNo)
+//		VALUES (
+//			'@flight',
+//			x,
+//			-- concat('departure_1',x),
+//			-- concat('arrival_1',x),
+//			-- concat('flightNo_1',x),
+//			-- concat('seatNo_1',x);
+//			
+//		SET x = x + 1;
+//		ITERATE loop_add;
+//	END LOOP;	";
 
 if (!mysqli_query($con,$sql)){
 	die('Error: ' . mysqli_error($con));

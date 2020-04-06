@@ -297,7 +297,7 @@ function addLayover(departure, arrival, airline, flightNo, seatNo) {
       $('#overlay').css("display", "block");
       //console.log(getCurrentIndex);
       //return form.valid();
-      //return form.submit();
+      return form.submit();
     },
     onFinished: function (event, currentIndex) {
 
