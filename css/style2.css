@@ -48,5 +48,10 @@ body {font-family: "Lato", sans-serif;
   height: 700px;
   background-color: #f1f1f1 ;
 }
-
+#passenger{
+  display: none;
+}
+#graphs{
+  display: none;
+}
 

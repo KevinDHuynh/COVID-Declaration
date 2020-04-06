@@ -1,3 +1,4 @@
+
 ///////////////////////////////////////////////
 // Tab                                      //
 /////////////////////////////////////////////
@@ -13,9 +14,23 @@ function showTableContent(evt, Name) {
     }
     document.getElementById(Name).style.display = "block";
     evt.currentTarget.className += " active";
+    //alert("graph: "+document.getElementById("graphs").style.display)
+  //alert("passenger: "+document.getElementById("passenger").style.display)
   }
   
   // Get the element with id="defaultOpen" and click on it
-  document.getElementById("defaultOpen").click();
+ //document.getElementById("defaultOpen").click();
 
+// Search
+var search_form= document.getElementById("search-form");
+search_form.addEventListener("submit",function(){
   
+   document.getElementById("graphs").style.display="none"
+   document.getElementById("passenger").style.display="block"
+  //   alert("graph: "+document.getElementById("graphs").style.display)
+  //   alert("passenger: "+document.getElementById("passenger").style.display)
+});
+
+///////////////////////////////////////////////
+// Chart                                   //
+/////////////////////////////////////////////
