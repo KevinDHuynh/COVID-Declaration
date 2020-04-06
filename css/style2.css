@@ -48,3 +48,24 @@ body {font-family: "Lato", sans-serif;
   height: 700px;
   background-color: #f1f1f1 ;
 }
+
+/* Logout */
+#logout-btn {
+  float: right;
+  padding: 6px 10px;
+  margin-top: 8px;
+  margin-right: 16px;
+  background-color: rgb(139, 141, 141,0.5);
+  color: whitesmoke;
+  font-size: 17px;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+}
+#logout-btn a{
+    text-decoration: none;
+}
+#logout-btn  a, a:visited{
+  text-decoration: none;
+  color: whitesmoke;
+}

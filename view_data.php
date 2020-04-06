@@ -16,6 +16,7 @@ if ($error != null) {
 
 <body>
     <div class="main">
+    <button id="logout-btn"><a href="http://localhost/COVID-Declaration/login.html">Logout</a></button>
         <img src="images/tsabanner.png" alt="TSA logo" /></a><br /><br />
         <div class="container">
 
