@@ -127,7 +127,7 @@ if ($error != null) {
                                                     email
                                                 from 
                                                     passenger 
-                                                WHERE passportNo LIKE '%$searchQuery%'OR LastName LIKE '%$searchQuery%'"; //search by passport number or by last name
+                                                WHERE passportNo LIKE '%$searchQuery%' XOR LastName LIKE '%$searchQuery%'"; //search by passport number or by last name
                             $result = mysqli_query($connect, $sql);
                             //only display table if the there is result
                             if ($result->num_rows > 0) {
@@ -149,7 +149,7 @@ if ($error != null) {
                                     //add rows
                                     data.addRows([
                                     <?php
-                                    while ($row = mysqli_fetch_array($result)) {
+                                    while ($row = mysqli_fetch_assoc($result)) {
                                         echo "[
                                                  '" . $row["firstName"] . "','" . $row["lastName"] . "','" . $row["passportNo"] . "','" . $row["nationality"] . "',
                                                  " . $row["inChina"] . "," . $row["inRegions"] . ", " . $row["cough"] . "," . $row["fever"] . "," . $row["difficultyBreathing"] . ",
