@@ -28,8 +28,8 @@ $state = mysqli_real_escape_string($con, $_REQUEST['state']);
 $zipcode = mysqli_real_escape_string($con, $_REQUEST['zipcode']);
 $email = mysqli_real_escape_string($con, $_REQUEST['email']);
 $phone = mysqli_real_escape_string($con, $_REQUEST['phone_number']);
-$inChina = mysqli_real_escape_string($con, $_REQUEST['inChina']);
-$date_inChina = mysqli_real_escape_string($con, $_REQUEST['dateChina']);
+//$inChina = mysqli_real_escape_string($con, $_REQUEST['inChina']);
+//$date_inChina = mysqli_real_escape_string($con, $_REQUEST['dateChina']);
 //$fever = mysqli_real_escape_string($con, $_REQUEST['fever']);
 //$cough = mysqli_real_escape_string($con, $_REQUEST['cough']);
 //$difficulityBreathing = mysqli_real_escape_string($con, $_REQUEST['shortBreathing']);
@@ -51,8 +51,6 @@ $sql="INSERT into passenger (
 	zipcode,
 	email,
 	phone,
-	inchina,
-	date_inChina)
 VALUES (
 	'$passport',
 	'$nationality',
@@ -66,9 +64,10 @@ VALUES (
 	'$state',
 	'$zipcode',
 	'$email',
-	'$phone',
-	'$inchina'
-	NULLIF('$date_inChina',''));";
+	'$phone';";
+	//,
+	//'$inchina'
+	//NULLIF('$date_inChina',''));";
 	
 //SET @flight = LAST_INSERT_ID();
 
