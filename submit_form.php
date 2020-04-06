@@ -168,17 +168,12 @@ for ($i = 1; $i<= $stopNo; $i++){
 		
 	if (!mysqli_query($con,$sql_layover)){
 	die('Error: ' . mysqli_error($con));
+	}
 }
-}
-	
-
-
-
-echo "submission added";
-
 mysqli_close($con);
 
-header("index.html")
+header("Location: index.html");
+exit();
 ?>
 
 </body>
