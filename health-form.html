@@ -24,6 +24,8 @@
 
             <form method="POST" id="health-form" class="health-form" action="submit_form.php">
                 <!--action="submit_form.php">-->
+
+
                 <!-- Personal Information -->
                 <h3>
                     <span class="title_text">Personal Information</span>
@@ -459,7 +461,8 @@
                             <label for="inChina" class="travel_history header">In the past 3 months, have you been to
                                 Republic of China?</label>
                             <label class="switch">
-                                <input id="inChina" name="inChina" type="checkbox">
+								<input type="hidden" name="inChina" value="0">
+                                <input id="inChina" name="inChina" type="checkbox" value="1">
                                 <span class="slider round"></span>
                             </label>
                         </div>
@@ -476,7 +479,8 @@
                             <label for="inRegion" class="travel_history header">In the past 14 days, have you been to
                                 any of the other countries or geographic regions listed:</label>
                             <label class="switch">
-                                <input id="inRegions" name="inRegions" type="checkbox">
+								<input type="hidden" name="inRegions" value="0">
+                                <input id="inRegions" name="inRegions" type="checkbox" value="1">
                                 <span class="slider round"></span>
                             </label>
                             <div class="region_list">
@@ -515,6 +519,11 @@
                         </div>
                         <div class="symptom">
                             <img src="images/fever.png" />
+                            <div style="visibility: hidden;">
+                                <input type="radio" name="fever" value=1 id="isfever" />
+                                <input type="radio" name="fever" value=0 id="notfever" checked="checked" />
+                            </div>
+
                             <p><strong>Fever (100.4° F / 38° C or higher), felt feverish, or had chills?</strong>
                             </p>
                             <div id="isFever" class="btn success">Yes</div>
@@ -522,12 +531,22 @@
                         </div>
                         <div class="symptom">
                             <img src="images/cough.png" />
+                            <div style="visibility:hidden;">
+                                <input type="radio" name="cough" value=1 id="iscough" />
+                                <input type="radio" name="cough" value=0 id="notcough" checked="checked" />
+                            </div>
+
                             <p><strong>New or worsening persistent (frequent or continuing) cough?</strong></p>
                             <div id="isCough" class="btn success">Yes</div>
                             <div id="notCough" class="btn danger">No</div>
                         </div>
                         <div class="symptom">
                             <img src="images/short_breath.png" />
+                            <div style="visibility: hidden;">
+                                <input type="radio" name="shortBreath" value=1 id="shortbreath" />
+                                <input type="radio" name="shortBreath" value=0 id="notshortbreath" checked="checked" />
+                            </div>
+
                             <p><strong>New or worsening difficulty breathing?</strong></p>
                             <div id="isShortBreath" class="btn success">Yes</div>
                             <div id="notShortBreath" class="btn danger">No</div>
@@ -783,7 +802,7 @@
         </div>
 
     </div>
-    
+
     <!-- Show Thank you after submitting -->
     <div id="overlay">
         <div id="text">
