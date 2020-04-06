@@ -24,55 +24,7 @@
 
             <form method="POST" id="health-form" class="health-form" action="submit_form.php">
                 <!--action="submit_form.php">-->
-                <!-- Symptoms -->
-                <h3>
-                    <span class="title_text">Symptoms</span>
-                </h3>
-                <fieldset>
-                    <div class="fieldset-content">
-                        <div class="important"><strong>TODAY OR IN THE PAST 24 HOURS, HAVE YOU HAD ANY OF THE
-                                FOLLOWING SYMPTOMS?</strong>
-                        </div>
-                        <div class="symptom">
-                            <img src="images/fever.png" />
-                            <div  style="visibility: hidden;">
-                                <input type="radio" name="fever" value=1 id="isfever" />
-                                <input type="radio" name="fever" value=0 id="notfever" checked="checked"  />
-                            </div>
-                            
-                            <p><strong>Fever (100.4° F / 38° C or higher), felt feverish, or had chills?</strong>
-                            </p>
-                            <div id="isFever" class="btn success">Yes</div>
-                            <div id="notFever" class="btn danger">No</div>
-                        </div>
-                        <div class="symptom">
-                            <img src="images/cough.png" />
-                            <div style="visibility:hidden;">
-                                <input type="radio" name="cough" value=1 id="iscough"  />
-                                <input type="radio" name="cough" value=0 id="notcough"checked="checked"  />
-                            </div>
-                           
-                            <p><strong>New or worsening persistent (frequent or continuing) cough?</strong></p>
-                            <div id="isCough" class="btn success">Yes</div>
-                            <div id="notCough" class="btn danger">No</div>
-                        </div>
-                        <div class="symptom">
-                            <img src="images/short_breath.png" />
-                            <div style="visibility: hidden;">
-                                <input type="radio" name="shortBreath" value=1 id="shortbreath"  />
-                                <input type="radio" name="shortBreath" value=0 id="notshortbreath" checked="checked" />
-                            </div>
-                            
-                            <p><strong>New or worsening difficulty breathing?</strong></p>
-                            <div id="isShortBreath" class="btn success">Yes</div>
-                            <div id="notShortBreath" class="btn danger">No</div>
-                        </div>
-                    </div>
 
-                    <div class="fieldset-footer">
-                        <span>Step 4 of 5</span>
-                    </div>
-                </fieldset>
 
                 <!-- Personal Information -->
                 <h3>
@@ -554,7 +506,56 @@
                     </div>
                 </fieldset>
 
-                
+                <!-- Symptoms -->
+                <h3>
+                    <span class="title_text">Symptoms</span>
+                </h3>
+                <fieldset>
+                    <div class="fieldset-content">
+                        <div class="important"><strong>TODAY OR IN THE PAST 24 HOURS, HAVE YOU HAD ANY OF THE
+                                FOLLOWING SYMPTOMS?</strong>
+                        </div>
+                        <div class="symptom">
+                            <img src="images/fever.png" />
+                            <div style="visibility: hidden;">
+                                <input type="radio" name="fever" value=1 id="isfever" />
+                                <input type="radio" name="fever" value=0 id="notfever" checked="checked" />
+                            </div>
+
+                            <p><strong>Fever (100.4° F / 38° C or higher), felt feverish, or had chills?</strong>
+                            </p>
+                            <div id="isFever" class="btn success">Yes</div>
+                            <div id="notFever" class="btn danger">No</div>
+                        </div>
+                        <div class="symptom">
+                            <img src="images/cough.png" />
+                            <div style="visibility:hidden;">
+                                <input type="radio" name="cough" value=1 id="iscough" />
+                                <input type="radio" name="cough" value=0 id="notcough" checked="checked" />
+                            </div>
+
+                            <p><strong>New or worsening persistent (frequent or continuing) cough?</strong></p>
+                            <div id="isCough" class="btn success">Yes</div>
+                            <div id="notCough" class="btn danger">No</div>
+                        </div>
+                        <div class="symptom">
+                            <img src="images/short_breath.png" />
+                            <div style="visibility: hidden;">
+                                <input type="radio" name="shortBreath" value=1 id="shortbreath" />
+                                <input type="radio" name="shortBreath" value=0 id="notshortbreath" checked="checked" />
+                            </div>
+
+                            <p><strong>New or worsening difficulty breathing?</strong></p>
+                            <div id="isShortBreath" class="btn success">Yes</div>
+                            <div id="notShortBreath" class="btn danger">No</div>
+                        </div>
+                    </div>
+
+                    <div class="fieldset-footer">
+                        <span>Step 4 of 5</span>
+                    </div>
+                </fieldset>
+
                 <!-- --------------------- -->
                 <!--      Review           -->
                 <!-- --------------------- -->
@@ -799,7 +800,7 @@
         </div>
 
     </div>
-    
+
     <!-- Show Thank you after submitting -->
     <div id="overlay">
         <div id="text">
