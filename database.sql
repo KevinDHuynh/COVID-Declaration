@@ -51,18 +51,6 @@ INSERT INTO `flight` (`flightID`, `origin`, `destination`, `stopNo`, `passengerI
 (77777, 'MIA', 'BOS', 0, 8),
 (88888, 'EWR', 'SFO', 1, 7),
 (98089, 'DFW', 'BOS', 0, 5),
-(98095, 'qwe', 'qwe', 0, 91346),
-(98096, 'qwe', 'qwe', 1, 91347),
-(98097, 'qwe', 'qwe', 3, 91348),
-(98098, 'qwe', 'qwe', 3, 91349),
-(98099, 'qwe', 'qwe', 3, 91350),
-(98100, 'qwe', 'qwe', 3, 91351),
-(98101, 'qwe', 'qwe', 3, 91352),
-(98102, 'qwe', 'qwe', 3, 91353),
-(98103, 'qwe', 'qwe', 3, 91354),
-(98104, 'qwe', 'qwe', 3, 91355),
-(98105, 'qwe', 'qwe', 3, 91356),
-(98106, 'qwe', 'qwe', 3, 91357);
 
 -- --------------------------------------------------------
 
@@ -135,21 +123,6 @@ INSERT INTO `passenger` (`passengerID`, `passportNo`, `nationality`, `firstName`
 (8, '673232412', 'American', 'Towney', NULL, 'Huyghe', '1937-04-25', 'Male', '40 Vermont Junction', 'Houston', 'TX', 77020, 'thuyghe5@shop-pro.jp', 7136167287, 1, '2020-01-24', 0, 1, 1, 1, 'Finland'),
 (9, '687935325', 'American', 'Benji', NULL, 'Boman', '1930-09-03', 'Male', '2785 Drewry Avenue', 'El Paso', 'TX', 79916, 'bboman6@twitpic.com', 9151320033, 1, '2020-02-29', 0, 0, 0, 0, NULL),
 (10, '337352266', 'American', 'Sidonnie', NULL, 'Abramof', '1933-08-13', 'Female', '5805 Talmadge Alley', 'El Paso', 'MA', 79950, 'sabramof7@dot.gov', 9158166183, 0, NULL, 0, 0, 0, 0, NULL),
-(91343, '1', 'algerian', 'Kevin', NULL, 'Huynh', NULL, 'male', '550 Huntington Ave, MS2248', 'Boston', 'MA', 2115, 'wingler101@gmail.com', 6176204624, 0, NULL, 0, 0, 0, 0, NULL),
-(91344, '231', 'bahamian', 'Kevin', NULL, 'Huynh', NULL, 'male', '550 Huntington Ave, MS2248', 'Boston', 'MA', 2115, 'wingler101@gmail.com', 6176204624, 0, NULL, 0, 0, 0, 0, NULL),
-(91345, '231', 'bahamian', 'Kevin', NULL, 'Huynh', NULL, 'male', '550 Huntington Ave, MS2248', 'Boston', 'MA', 2115, 'wingler101@gmail.com', 6176204624, 0, NULL, 0, 0, 0, 0, NULL),
-(91346, '123', 'algerian', 'Kevin', NULL, 'Huynh', '0000-00-00', 'male', '550 Huntington Ave, MS2248', 'Boston', 'MA', 2115, 'wingler101@gmail.com', 6176204624, 0, NULL, 0, 0, 0, 0, NULL),
-(91347, '2', 'albanian', 'Kevin', NULL, 'Huynh', NULL, 'male', '550 Huntington Ave, MS2248', 'Boston', 'MA', 2115, 'wingler101@gmail.com', 6176204624, 0, NULL, 0, 0, 0, 0, NULL),
-(91348, '1', 'albanian', 'Kevin', NULL, 'Huynh', NULL, 'male', '550 Huntington Ave, MS2248', 'Boston', 'MA', 2115, 'wingler101@gmail.com', 6176204624, 0, NULL, 0, 0, 0, 0, NULL),
-(91349, '1', 'albanian', 'Kevin', NULL, 'Huynh', NULL, 'male', '550 Huntington Ave, MS2248', 'Boston', 'MA', 2115, 'wingler101@gmail.com', 6176204624, 0, NULL, 0, 0, 0, 0, NULL),
-(91350, '1', 'albanian', 'Kevin', NULL, 'Huynh', NULL, 'male', '550 Huntington Ave, MS2248', 'Boston', 'MA', 2115, 'wingler101@gmail.com', 6176204624, 0, NULL, 0, 0, 0, 0, NULL),
-(91351, '1', 'albanian', 'Kevin', NULL, 'Huynh', NULL, 'male', '550 Huntington Ave, MS2248', 'Boston', 'MA', 2115, 'wingler101@gmail.com', 6176204624, 0, NULL, 0, 0, 0, 0, NULL),
-(91352, '1', 'albanian', 'Kevin', NULL, 'Huynh', NULL, 'male', '550 Huntington Ave, MS2248', 'Boston', 'MA', 2115, 'wingler101@gmail.com', 6176204624, 0, NULL, 0, 0, 0, 0, NULL),
-(91353, '1', 'albanian', 'Kevin', NULL, 'Huynh', NULL, 'male', '550 Huntington Ave, MS2248', 'Boston', 'MA', 2115, 'wingler101@gmail.com', 6176204624, 0, NULL, 0, 0, 0, 0, NULL),
-(91354, '1', 'albanian', 'Kevin', NULL, 'Huynh', NULL, 'male', '550 Huntington Ave, MS2248', 'Boston', 'MA', 2115, 'wingler101@gmail.com', 6176204624, 0, NULL, 0, 0, 0, 0, NULL),
-(91355, '1', 'albanian', 'Kevin', NULL, 'Huynh', NULL, 'male', '550 Huntington Ave, MS2248', 'Boston', 'MA', 2115, 'wingler101@gmail.com', 6176204624, 0, NULL, 0, 0, 0, 0, NULL),
-(91356, '1', 'albanian', 'Kevin', NULL, 'Huynh', NULL, 'male', '550 Huntington Ave, MS2248', 'Boston', 'MA', 2115, 'wingler101@gmail.com', 6176204624, 0, NULL, 0, 0, 0, 0, NULL),
-(91357, '1', 'albanian', 'Kevin', NULL, 'Huynh', NULL, 'male', '550 Huntington Ave, MS2248', 'Boston', 'MA', 2115, 'wingler101@gmail.com', 6176204624, 0, NULL, 0, 0, 0, 0, NULL);
 
 --
 -- Indexes for dumped tables
