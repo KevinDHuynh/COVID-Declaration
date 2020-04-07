@@ -110,8 +110,8 @@ if ($error != null) {
                         });
                         google.charts.setOnLoadCallback(drawTable);
 
+                        //search
                         <?php
-                        //search 
                         if (isset($_POST['search'])) {
                             $searchQuery = $_POST['search'];
                             $sql = "Select 
@@ -127,9 +127,9 @@ if ($error != null) {
                                                     email
                                                 from 
                                                     passenger 
-                                                WHERE passportNo LIKE '%$searchQuery%' XOR LastName LIKE '%$searchQuery%'"; //search by passport number or by last name
+                                                WHERE passportNo LIKE '%$searchQuery%'OR LastName LIKE '%$searchQuery%'";
                             $result = mysqli_query($connect, $sql);
-                            //only display table if the there is result
+                            //only display table if has result
                             if ($result->num_rows > 0) {
                         ?>
                                 //draw table
@@ -146,27 +146,26 @@ if ($error != null) {
                                     data.addColumn('boolean', 'Difficulty Breathing');
                                     data.addColumn('string', 'Email');
 
-                                    //add rows
                                     data.addRows([
                                     <?php
-                                    while ($row = mysqli_fetch_assoc($result)) {
+                                    while ($row = mysqli_fetch_array($result)) {
                                         echo "[
                                                  '" . $row["firstName"] . "','" . $row["lastName"] . "','" . $row["passportNo"] . "','" . $row["nationality"] . "',
                                                  " . $row["inChina"] . "," . $row["inRegions"] . ", " . $row["cough"] . "," . $row["fever"] . "," . $row["difficultyBreathing"] . ",
                                                  '" . $row["email"] . "'
                                                 ], ";
-                                    } //end while 
-                                } //end drawTable()
+                                    } //end while
+                                } //end if
                             }
                                     ?>
-                                    ]); //end of add row
+                                    ]);
 
                                     var table = new google.visualization.Table(document.getElementById('table_div'));
 
                                     table.draw(data, {
                                         showRowNumber: true,
                                         width: '100%',
-                                        height: '400'
+                                        height: '450'
                                     });
                                 }
                     </script>
