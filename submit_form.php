@@ -40,23 +40,15 @@ $stop_1 = mysqli_real_escape_string($con, $_REQUEST['stop_1']);
 $stop_2 = mysqli_real_escape_string($con, $_REQUEST['stop_2']);
 $stop_3 = mysqli_real_escape_string($con, $_REQUEST['stop_3']);
 
-//$departure_1 = mysqli_real_escape_string($con, $_REQUEST['departure_1']);
-//$arrival_1 = mysqli_real_escape_string($con, $_REQUEST['arrival_1']);
 $flightNo_1 = mysqli_real_escape_string($con, $_REQUEST['flightNo_1']);
 $seatNo_1 =  mysqli_real_escape_string($con, $_REQUEST['seatNo_1']);
 
-//$departure_2 = mysqli_real_escape_string($con, $_REQUEST['departure_2']);
-//$arrival_2 = mysqli_real_escape_string($con, $_REQUEST['arrival_2']);
 $flightNo_2 = mysqli_real_escape_string($con, $_REQUEST['flightNo_2']);
 $seatNo_2 =  mysqli_real_escape_string($con, $_REQUEST['seatNo_2']);
 
-//$departure_3 = mysqli_real_escape_string($con, $_REQUEST['departure_3']);
-//$arrival_3 = mysqli_real_escape_string($con, $_REQUEST['arrival_3']);
 $flightNo_3 = mysqli_real_escape_string($con, $_REQUEST['flightNo_3']);
 $seatNo_3 =  mysqli_real_escape_string($con, $_REQUEST['seatNo_3']);
 
-//$departure_4 = mysqli_real_escape_string($con, $_REQUEST['departure_4']);
-//$arrival_4 = mysqli_real_escape_string($con, $_REQUEST['arrival_4']);
 $flightNo_4 = mysqli_real_escape_string($con, $_REQUEST['flightNo_4']);
 $seatNo_4 =  mysqli_real_escape_string($con, $_REQUEST['seatNo_4']);
 
@@ -64,6 +56,7 @@ $fever = mysqli_real_escape_string($con, $_REQUEST['fever']);
 $cough = mysqli_real_escape_string($con, $_REQUEST['cough']);
 $shortBreath = mysqli_real_escape_string($con, $_REQUEST['shortBreath']);
 
+//create SQL command to insert into passenger table
 $sql="INSERT into passenger (
 	passportNo,
 	nationality,
@@ -106,10 +99,13 @@ VALUES (
 	'$shortBreath',
 	'$inRegion',
 	NULLIF('$recent_countries',''));";
-	
+
+//send command and retreive last added ID for next command
 if (mysqli_query($con, $sql)) {
     $passengerID = mysqli_insert_id($con);
 }
+
+//create sql command for insert to flight table
 $sql="INSERT into flight (
 	origin,
 	destination,
@@ -121,6 +117,7 @@ VALUES (
 	'$stopNo',
 	'$passengerID')";
 	
+//send command and retreive last added ID for next command
 if (mysqli_query($con, $sql)) {
     $flightID = mysqli_insert_id($con);
 }
@@ -133,12 +130,11 @@ $airline="";
 $flightNo="";
 $seatNo="";
 
+//create loop to add as many layovers as submited 
 for ($i = 1; $i<= $stopNo; $i++){
 	$j = $i+1;
-	//if($i == 0){
-	//$departure=$origin;
-	//$arrival=$stop_1;
-	//}
+
+	//create new variables using escape characters
 	if($i == $stopNo){
 	$departure=${"stop_".$i};
 	$arrival=$destination;	
@@ -172,6 +168,7 @@ for ($i = 1; $i<= $stopNo; $i++){
 }
 mysqli_close($con);
 
+//redirect user back to homepage
 header("Location: index.html");
 exit();
 ?>
