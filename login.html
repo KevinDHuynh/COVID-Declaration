@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>َTSA Login </title>
+  <link rel="stylesheet" href="css/login.css">
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+  <script>
+    $(document).ready(function () {
+      $('#submit').click(function () {
+        if (!($('#username').val() == 'admin' && $('#password').val() == 'admin')){
+          alert('Incorrect usernanme or password!');
+        }
+      });
+    });
+  </Script>
+
+</head>
+
+<body>
+
+  <form class="box" action="login.php" method="post">
+    <h1>TSA LOGIN</h1>
+    <input type="text" name="username" id="username" placeholder="Username">
+    <input type="password" name="password" id="password" placeholder="Password">
+    <input type="submit" name="submit" id="submit" value="Login">
+  </form>
+
+
+</body>
+
+</html>
