@@ -304,7 +304,7 @@ function addLayover(departure, arrival, airline, flightNo, seatNo) {
 
       //thanks_on();
       //window.location.href = 'newPage.html';
-      return form.submit();
+      //return form.submit();
     },
     // onInit : function (event, currentIndex) {
     //     event.append('demo');
