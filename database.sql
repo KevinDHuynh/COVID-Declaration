@@ -50,7 +50,7 @@ INSERT INTO `flight` (`flightID`, `origin`, `destination`, `stopNo`, `passengerI
 (66666, 'PHX', 'BOS', 0, 10),
 (77777, 'MIA', 'BOS', 0, 8),
 (88888, 'EWR', 'SFO', 1, 7),
-(98089, 'DFW', 'BOS', 0, 5),
+(98089, 'DFW', 'BOS', 0, 5);
 
 -- --------------------------------------------------------
 
