@@ -122,7 +122,7 @@ INSERT INTO `passenger` (`passengerID`, `passportNo`, `nationality`, `firstName`
 (7, '233336662', 'American', 'Misty', 'K', 'Dangl', '1960-10-14', 'Female', '27 Ohio Avenue', 'Des Moines', 'NY', 50936, 'mdangl4@netlog.com', 5151137228, 1, '2020-01-01', 0, 1, 0, 0, NULL),
 (8, '673232412', 'American', 'Towney', NULL, 'Huyghe', '1937-04-25', 'Male', '40 Vermont Junction', 'Houston', 'TX', 77020, 'thuyghe5@shop-pro.jp', 7136167287, 1, '2020-01-24', 0, 1, 1, 1, 'Finland'),
 (9, '687935325', 'American', 'Benji', NULL, 'Boman', '1930-09-03', 'Male', '2785 Drewry Avenue', 'El Paso', 'TX', 79916, 'bboman6@twitpic.com', 9151320033, 1, '2020-02-29', 0, 0, 0, 0, NULL),
-(10, '337352266', 'American', 'Sidonnie', NULL, 'Abramof', '1933-08-13', 'Female', '5805 Talmadge Alley', 'El Paso', 'MA', 79950, 'sabramof7@dot.gov', 9158166183, 0, NULL, 0, 0, 0, 0, NULL),
+(10, '337352266', 'American', 'Sidonnie', NULL, 'Abramof', '1933-08-13', 'Female', '5805 Talmadge Alley', 'El Paso', 'MA', 79950, 'sabramof7@dot.gov', 9158166183, 0, NULL, 0, 0, 0, 0, NULL);
 
 --
 -- Indexes for dumped tables
